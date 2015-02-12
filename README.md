@@ -30,7 +30,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-Copyright (c) 2015 Christian Yang. Licensed under the Apache license.
+Copyright (c) 2015 McChrystal Group. Licensed under the Apache license.
 
 
 
