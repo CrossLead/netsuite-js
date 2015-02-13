@@ -8,6 +8,18 @@
 
 'use strict';
 
-var netsuiteJs = require('../');
+var NetSuite = require('../');
+var credentials = require('./credentials.json');
+var config = new NetSuite.Configuration(credentials);
 
-console.log(netsuiteJs()); // "awesome"
+console.log('Creating NetSuite connection');
+
+config
+  .createConnection()
+  .then(function(client) {
+    console.log('Connected. Service description:');
+    console.log(client.describe());
+  })
+  .catch(function(err) {
+    console.error(err);
+  });

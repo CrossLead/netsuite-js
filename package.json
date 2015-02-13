@@ -5,7 +5,7 @@
   "homepage": "https://github.com/CrossLead/netsuite-js",
   "bugs": "https://github.com/CrossLead/netsuite-js/issues",
   "license": "Apache",
-  "main": "lib/netsuite-js.js",
+  "main": "lib/index.js",
   "author": {
     "name": "Christian Yang",
     "email": "christian.yang@crosslead.com",
@@ -15,10 +15,13 @@
     "type": "git",
     "url": "https://github.com/CrossLead/netsuite-js"
   },
-  "keywords":[],
+  "keywords": [],
   "dependencies": {
     "lodash": "3.2.0",
-    "debug": "2.1.1"
+    "debug": "2.1.1",
+    "soap": "^0.7.0",
+    "denodeify": "^1.2.0",
+    "es6-promise": "^2.0.1"
   },
   "devDependencies": {
     "gulp": "^3.8.8",

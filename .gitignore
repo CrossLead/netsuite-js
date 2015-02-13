@@ -4,3 +4,4 @@ coverage/
 npm-debug.log
 .DS_Store
 .idea
+/example/credentials.json
