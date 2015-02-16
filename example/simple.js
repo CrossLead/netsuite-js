@@ -24,7 +24,7 @@ config
     console.log(client.describe());
     console.log('Getting Employee record');
     client.get({
-      'platformMsgs:baseRef': {
+      'baseRef': {
         attributes: {
           internalId: 5084,
           type: 'employee',
@@ -38,7 +38,7 @@ config
         console.log(result);
       }
       console.log('Last Request:');
-      console.log(lastRequest.c);
+      console.log(c.lastRequest);
     });
   })
   .catch(function(err) {
