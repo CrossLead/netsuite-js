@@ -8,17 +8,38 @@
 
 'use strict';
 
+var denodeify = require('denodeify');
 var NetSuite = require('../');
 var credentials = require('./credentials.json');
 var config = new NetSuite.Configuration(credentials);
+var c;
 
 console.log('Creating NetSuite connection');
 
 config
   .createConnection()
   .then(function(client) {
-    console.log('Connected. Service description:');
+    c = client;
+    console.log('WSDL processed. Service description:');
     console.log(client.describe());
+    console.log('Getting Employee record');
+    client.get({
+      'platformMsgs:baseRef': {
+        attributes: {
+          internalId: 5084,
+          type: 'employee',
+          'xsi:type': 'platformCore:RecordRef'
+        }
+      }
+    }, function(err, result, raw, soapHeader) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(result);
+      }
+      console.log('Last Request:');
+      console.log(lastRequest.c);
+    });
   })
   .catch(function(err) {
     console.error(err);
