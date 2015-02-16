@@ -14,9 +14,27 @@ $ npm install --save netsuite-js
 ## Usage
 
 ```javascript
-var netsuiteJs = require('netsuite-js');
-netsuiteJs(); // "awesome"
+var NetSuite = require('netsuite-js');
+var credentials =  {
+  "email": "test@test.com",
+  "password": "password",
+  "account": 123456,
+  "role": 3
+};
+var config = new NetSuite.Configuration(credentials);
+config
+  .createConnection()
+  .then(function(client) {
+    console.log('Connected. Service description:');
+    console.log(client.describe());
+  });
 ```
+
+## Running the examples
+
+* Copy `example/credentials.json.sample` to `example/credentials.json`
+* Fill in with your NetSuite credentials
+* Run `node example/simple.js` or other examples
 
 ## API
 
