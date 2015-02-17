@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:generalCommTyp="urn:types.communication_2014_2.general.webservices.netsuite.com" targetNamespace="urn:types.communication_2014_2.general.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- NoteDirection/start -->
+    <simpleType name="NoteDirection">
+        <restriction base="xsd:string">
+            <enumeration value="_incoming"/>
+            <enumeration value="_outgoing"/>
+        </restriction>
+    </simpleType>
+    <!-- NoteDirection/end -->
+    <simpleType name="MessageMessageType">
+        <restriction base="xsd:string">
+            <enumeration value="_email"/>
+            <enumeration value="_emailedReport"/>
+            <enumeration value="_fax"/>
+            <enumeration value="_pdf"/>
+            <enumeration value="_print"/>
+        </restriction>
+    </simpleType>
+</schema>

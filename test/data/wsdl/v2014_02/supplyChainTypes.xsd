@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listScmTyp="urn:types.supplychain_2014_2.lists.webservices.netsuite.com" targetNamespace="urn:types.supplychain_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <simpleType name="ManufacturingOperationTaskStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_completed"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_notStarted"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ManufacturingOperationTaskPredecessorPredecessorType">
+        <restriction base="xsd:string">
+            <enumeration value="_finishToFinish"/>
+            <enumeration value="_finishToStart"/>
+            <enumeration value="_startToFinish"/>
+            <enumeration value="_startToStart"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ManufacturingLagType">
+        <restriction base="xsd:string">
+            <enumeration value="_quantity"/>
+            <enumeration value="_quantityPercentage"/>
+            <enumeration value="_time"/>
+            <enumeration value="_timePercentage"/>
+        </restriction>
+    </simpleType>
+</xsd:schema>

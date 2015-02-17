@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tranEmp="urn:employees_2014_2.transactions.webservices.netsuite.com" xmlns:tranEmpTyp="urn:types.employees_2014_2.transactions.webservices.netsuite.com" xmlns:platformCore="urn:core_2014_2.platform.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2014_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2014_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2014_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:employees_2014_2.transactions.webservices.netsuite.com" elementFormDefault="qualified">
+    <import namespace="urn:core_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/core.xsd"/>
+    <import namespace="urn:common_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/common.xsd"/>
+    <import namespace="urn:types.employees_2014_2.transactions.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2014_2_0/employeeTypes.xsd"/>
+    <!-- timeBill/start -->
+    <element name="TimeBill" type="tranEmp:TimeBill"/>
+    <complexType name="TimeBill">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="employee" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="tranDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="customer" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="caseTaskEvent" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="isBillable" type="xsd:boolean" minOccurs="0"/>
+                    <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="paidExternally" type="xsd:boolean" minOccurs="0"/>
+                    <element name="workplace" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="item" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="hours" type="platformCore:Duration" minOccurs="0"/>
+                    <element name="price" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="timeType" type="tranEmpTyp:TimeBillTimeType" minOccurs="0"/>
+                    <element name="rate" type="xsd:double" minOccurs="0"/>
+                    <element name="overrideRate" type="xsd:boolean" minOccurs="0"/>
+                    <element name="temporaryLocalJurisdiction" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="temporaryStateJurisdiction" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="memo" type="xsd:string" minOccurs="0"/>
+                    <element name="subsidiary" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="supervisorApproval" type="xsd:boolean" minOccurs="0"/>
+                    <element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="status" type="xsd:string" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="timeBillSearch" type="tranEmp:TimeBillSearch"/>
+    <complexType name="TimeBillSearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeBillSearchBasic" minOccurs="0"/>
+                    <element name="callJoin" type="platformCommon:PhoneCallSearchBasic" minOccurs="0"/>
+                    <element name="caseJoin" type="platformCommon:SupportCaseSearchBasic" minOccurs="0"/>
+                    <element name="classJoin" type="platformCommon:ClassificationSearchBasic" minOccurs="0"/>
+                    <element name="customerJoin" type="platformCommon:CustomerSearchBasic" minOccurs="0"/>
+                    <element name="departmentJoin" type="platformCommon:DepartmentSearchBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="eventJoin" type="platformCommon:CalendarEventSearchBasic" minOccurs="0"/>
+                    <element name="itemJoin" type="platformCommon:ItemSearchBasic" minOccurs="0"/>
+                    <element name="jobJoin" type="platformCommon:JobSearchBasic" minOccurs="0"/>
+                    <element name="locationJoin" type="platformCommon:LocationSearchBasic" minOccurs="0"/>
+                    <element name="projectTaskJoin" type="platformCommon:ProjectTaskSearchBasic" minOccurs="0"/>
+                    <element name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchBasic" minOccurs="0"/>
+                    <element name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchBasic" minOccurs="0"/>
+                    <element name="taskJoin" type="platformCommon:TaskSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="vendorJoin" type="platformCommon:VendorSearchBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchJoin" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeBillSearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="tranEmp:TimeBillSearch" minOccurs="0"/>
+                    <element name="columns" type="tranEmp:TimeBillSearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchId" type="xsd:string"/>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeBillSearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeBillSearchRowBasic" minOccurs="0"/>
+                    <element name="callJoin" type="platformCommon:PhoneCallSearchRowBasic" minOccurs="0"/>
+                    <element name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" minOccurs="0"/>
+                    <element name="classJoin" type="platformCommon:ClassificationSearchRowBasic" minOccurs="0"/>
+                    <element name="customerJoin" type="platformCommon:CustomerSearchRowBasic" minOccurs="0"/>
+                    <element name="departmentJoin" type="platformCommon:DepartmentSearchRowBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="eventJoin" type="platformCommon:CalendarEventSearchRowBasic" minOccurs="0"/>
+                    <element name="itemJoin" type="platformCommon:ItemSearchRowBasic" minOccurs="0"/>
+                    <element name="jobJoin" type="platformCommon:JobSearchRowBasic" minOccurs="0"/>
+                    <element name="locationJoin" type="platformCommon:LocationSearchRowBasic" minOccurs="0"/>
+                    <element name="projectTaskJoin" type="platformCommon:ProjectTaskSearchRowBasic" minOccurs="0"/>
+                    <element name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchRowBasic" minOccurs="0"/>
+                    <element name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchRowBasic" minOccurs="0"/>
+                    <element name="taskJoin" type="platformCommon:TaskSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="vendorJoin" type="platformCommon:VendorSearchRowBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- timeBill/end -->
+    <element name="expenseReport" type="tranEmp:ExpenseReport"/>
+    <complexType name="ExpenseReport">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="status" type="xsd:string" minOccurs="0"/>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="account" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="entity" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="subsidiary" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="tranId" type="xsd:string" minOccurs="0"/>
+                    <element name="postingPeriod" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="tranDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="dueDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="approvalStatus" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="total" type="xsd:double" minOccurs="0"/>
+                    <element name="nextApprover" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="advance" type="xsd:double" minOccurs="0"/>
+                    <element name="tax1Amt" type="xsd:double" minOccurs="0"/>
+                    <element name="amount" type="xsd:double" minOccurs="0"/>
+                    <element name="memo" type="xsd:string" minOccurs="0"/>
+                    <element name="complete" type="xsd:boolean" minOccurs="0"/>
+                    <element name="supervisorApproval" type="xsd:boolean" minOccurs="0"/>
+                    <element name="accountingApproval" type="xsd:boolean" minOccurs="0"/>
+                    <element name="useMultiCurrency" type="xsd:boolean" minOccurs="0"/>
+                    <element name="tax2Amt" type="xsd:double" minOccurs="0"/>
+                    <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="expenseList" type="tranEmp:ExpenseReportExpenseList" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="ExpenseReportExpense">
+        <sequence>
+            <element name="line" type="xsd:long" minOccurs="0"/>
+            <element name="expenseDate" type="xsd:dateTime" minOccurs="0"/>
+            <element name="category" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="quantity" type="xsd:double" minOccurs="0"/>
+            <element name="rate" type="xsd:double" minOccurs="0"/>
+            <element name="foreignAmount" type="xsd:double" minOccurs="0"/>
+            <element name="currency" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="exchangeRate" type="xsd:double" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="taxCode" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="memo" type="xsd:string" minOccurs="0"/>
+            <element name="taxRate1" type="xsd:double" minOccurs="0"/>
+            <element name="tax1Amt" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="grossAmt" type="xsd:double" minOccurs="0"/>
+            <element name="taxRate2" type="xsd:double" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customer" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="isBillable" type="xsd:boolean" minOccurs="0"/>
+            <element name="expMediaItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="isNonReimbursable" type="xsd:boolean" minOccurs="0"/>
+            <element name="receipt" type="xsd:boolean" minOccurs="0"/>
+            <element name="refNumber" type="xsd:long" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="ExpenseReportExpenseList">
+        <sequence>
+            <element name="expense" type="tranEmp:ExpenseReportExpense" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="paycheckJournal" type="tranEmp:PaycheckJournal"/>
+    <complexType name="PaycheckJournal">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="subsidiary" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="currency" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="exchangeRate" type="xsd:double" minOccurs="0"/>
+                    <element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="tranId" type="xsd:string" minOccurs="0"/>
+                    <element name="employee" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="tranDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="postingPeriod" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="account" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="companyContributionList" type="tranEmp:PaycheckJournalCompanyContributionList" minOccurs="0"/>
+                    <element name="deductionList" type="tranEmp:PaycheckJournalDeductionList" minOccurs="0"/>
+                    <element name="employeeTaxList" type="tranEmp:PaycheckJournalEmployeeTaxList" minOccurs="0"/>
+                    <element name="companyTaxList" type="tranEmp:PaycheckJournalCompanyTaxList" minOccurs="0"/>
+                    <element name="earningList" type="tranEmp:PaycheckJournalEarningList" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PaycheckJournalCompanyTax">
+        <sequence>
+            <element name="id" type="xsd:long" minOccurs="0"/>
+            <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PaycheckJournalCompanyTaxList">
+        <sequence>
+            <element name="paycheckJournalCompanyTax" type="tranEmp:PaycheckJournalCompanyTax" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="PaycheckJournalDeduction">
+        <sequence>
+            <element name="id" type="xsd:long" minOccurs="0"/>
+            <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PaycheckJournalDeductionList">
+        <sequence>
+            <element name="paycheckJournalDeduction" type="tranEmp:PaycheckJournalDeduction" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="PaycheckJournalCompanyContribution">
+        <sequence>
+            <element name="id" type="xsd:long" minOccurs="0"/>
+            <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PaycheckJournalCompanyContributionList">
+        <sequence>
+            <element name="paycheckJournalCompanyContribution" type="tranEmp:PaycheckJournalCompanyContribution" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="PaycheckJournalEarning">
+        <sequence>
+            <element name="id" type="xsd:long" minOccurs="0"/>
+            <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="hours" type="xsd:double" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PaycheckJournalEarningList">
+        <sequence>
+            <element name="paycheckJournalEarning" type="tranEmp:PaycheckJournalEarning" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="PaycheckJournalEmployeeTax">
+        <sequence>
+            <element name="id" type="xsd:long" minOccurs="0"/>
+            <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="amount" type="xsd:double" minOccurs="0"/>
+            <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PaycheckJournalEmployeeTaxList">
+        <sequence>
+            <element name="paycheckJournalEmployeeTax" type="tranEmp:PaycheckJournalEmployeeTax" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="timeEntry" type="tranEmp:TimeEntry"/>
+    <complexType name="TimeEntry">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="hours" type="platformCore:Duration" minOccurs="0"/>
+                    <element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="customer" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="caseTaskEvent" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="item" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="isBillable" type="xsd:boolean" minOccurs="0"/>
+                    <element name="payrollItem" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="paidExternally" type="xsd:boolean" minOccurs="0"/>
+                    <element name="price" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="rate" type="xsd:double" minOccurs="0"/>
+                    <element name="overrideRate" type="xsd:boolean" minOccurs="0"/>
+                    <element name="memo" type="xsd:string" minOccurs="0"/>
+                    <element name="department" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="class" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="location" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="billingClass" type="xsd:string" minOccurs="0"/>
+                    <element name="subsidiary" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="approvalStatus" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="timeType" type="tranEmpTyp:TimeBillTimeType" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="timeSheet" type="tranEmp:TimeSheet"/>
+    <complexType name="TimeSheet">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="employee" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="startDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="endDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="totalHours" type="platformCore:Duration" minOccurs="0"/>
+                    <element name="approvalStatus" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="subsidiary" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="timeGridList" type="tranEmp:TimeSheetTimeGridList" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeSheetTimeGrid">
+        <sequence>
+            <element name="sunday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="monday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="tuesday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="wednesday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="thursday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="friday" type="tranEmp:TimeEntry" minOccurs="0"/>
+            <element name="saturday" type="tranEmp:TimeEntry" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="TimeSheetTimeGridList">
+        <sequence>
+            <element name="timeSheetTimeGrid" type="tranEmp:TimeSheetTimeGrid" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="timeEntrySearch" type="tranEmp:TimeEntrySearch"/>
+    <complexType name="TimeEntrySearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeEntrySearchBasic" minOccurs="0"/>
+                    <element name="callJoin" type="platformCommon:PhoneCallSearchBasic" minOccurs="0"/>
+                    <element name="caseJoin" type="platformCommon:SupportCaseSearchBasic" minOccurs="0"/>
+                    <element name="classJoin" type="platformCommon:ClassificationSearchBasic" minOccurs="0"/>
+                    <element name="customerJoin" type="platformCommon:CustomerSearchBasic" minOccurs="0"/>
+                    <element name="departmentJoin" type="platformCommon:DepartmentSearchBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="eventJoin" type="platformCommon:CalendarEventSearchBasic" minOccurs="0"/>
+                    <element name="itemJoin" type="platformCommon:ItemSearchBasic" minOccurs="0"/>
+                    <element name="jobJoin" type="platformCommon:JobSearchBasic" minOccurs="0"/>
+                    <element name="locationJoin" type="platformCommon:LocationSearchBasic" minOccurs="0"/>
+                    <element name="projectTaskJoin" type="platformCommon:ProjectTaskSearchBasic" minOccurs="0"/>
+                    <element name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchBasic" minOccurs="0"/>
+                    <element name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchBasic" minOccurs="0"/>
+                    <element name="taskJoin" type="platformCommon:TaskSearchBasic" minOccurs="0"/>
+                    <element name="timeSheetJoin" type="platformCommon:TimeSheetSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="vendorJoin" type="platformCommon:VendorSearchBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchJoin" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeEntrySearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="tranEmp:TimeEntrySearch" minOccurs="0"/>
+                    <element name="columns" type="tranEmp:TimeEntrySearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchId" type="xsd:string"/>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeEntrySearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeEntrySearchRowBasic" minOccurs="0"/>
+                    <element name="callJoin" type="platformCommon:PhoneCallSearchRowBasic" minOccurs="0"/>
+                    <element name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" minOccurs="0"/>
+                    <element name="classJoin" type="platformCommon:ClassificationSearchRowBasic" minOccurs="0"/>
+                    <element name="customerJoin" type="platformCommon:CustomerSearchRowBasic" minOccurs="0"/>
+                    <element name="departmentJoin" type="platformCommon:DepartmentSearchRowBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="eventJoin" type="platformCommon:CalendarEventSearchRowBasic" minOccurs="0"/>
+                    <element name="itemJoin" type="platformCommon:ItemSearchRowBasic" minOccurs="0"/>
+                    <element name="jobJoin" type="platformCommon:JobSearchRowBasic" minOccurs="0"/>
+                    <element name="locationJoin" type="platformCommon:LocationSearchRowBasic" minOccurs="0"/>
+                    <element name="projectTaskJoin" type="platformCommon:ProjectTaskSearchRowBasic" minOccurs="0"/>
+                    <element name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchRowBasic" minOccurs="0"/>
+                    <element name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchRowBasic" minOccurs="0"/>
+                    <element name="taskJoin" type="platformCommon:TaskSearchRowBasic" minOccurs="0"/>
+                    <element name="timeSheetJoin" type="platformCommon:TimeSheetSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="vendorJoin" type="platformCommon:VendorSearchRowBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="timeSheetSearch" type="tranEmp:TimeSheetSearch"/>
+    <complexType name="TimeSheetSearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeSheetSearchBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="timeEntryJoin" type="platformCommon:TimeEntrySearchBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchJoin" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeSheetSearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="tranEmp:TimeSheetSearch" minOccurs="0"/>
+                    <element name="columns" type="tranEmp:TimeSheetSearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchId" type="xsd:string"/>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TimeSheetSearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:TimeSheetSearchRowBasic" minOccurs="0"/>
+                    <element name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="timeEntryJoin" type="platformCommon:TimeEntrySearchRowBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

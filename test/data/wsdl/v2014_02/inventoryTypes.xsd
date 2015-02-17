@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tranInvtTyp="urn:types.inventory_2014_2.transactions.webservices.netsuite.com" targetNamespace="urn:types.inventory_2014_2.transactions.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- inventoryAdjustment constants/start -->
+    <!-- inventoryAdjustment constants/end -->
+    <simpleType name="TransferOrderItemCommitInventory">
+        <restriction base="xsd:string">
+            <enumeration value="_availableQty"/>
+            <enumeration value="_completeQty"/>
+            <enumeration value="_doNotCommit"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransferOrderOrderStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_pendingApproval"/>
+            <enumeration value="_pendingFulfillment"/>
+            <enumeration value="_rejected"/>
+            <enumeration value="_partiallyFulfilled"/>
+            <enumeration value="_pendingReceiptPartFulfilled"/>
+            <enumeration value="_pendingReceipt"/>
+            <enumeration value="_received"/>
+            <enumeration value="_closed"/>
+            <enumeration value="_undefined"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="WorkOrderItemItemCreatePo">
+        <restriction base="xsd:string">
+            <enumeration value="_dropShipment"/>
+            <enumeration value="_specialOrder"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="WorkOrderItemItemCommitInventory">
+        <restriction base="xsd:string">
+            <enumeration value="_availableQty"/>
+            <enumeration value="_completeQty"/>
+            <enumeration value="_doNotCommit"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="WorkOrderOrderStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_built"/>
+            <enumeration value="_cancelled"/>
+            <enumeration value="_closed"/>
+            <enumeration value="_inProcess"/>
+            <enumeration value="_planned"/>
+            <enumeration value="_released"/>
+            <enumeration value="_undefined"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="WorkOrderSchedulingMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_backward"/>
+            <enumeration value="_forward"/>
+        </restriction>
+    </simpleType>
+</schema>

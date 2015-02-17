@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tranSalesTyp="urn:types.sales_2014_2.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:types.sales_2014_2.transactions.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- SalesOrderItemCommitInventory/start -->
+    <simpleType name="SalesOrderItemCommitInventory">
+        <restriction base="xsd:string">
+            <enumeration value="_availableQty"/>
+            <enumeration value="_completeQty"/>
+            <enumeration value="_doNotCommit"/>
+        </restriction>
+    </simpleType>
+    <!-- SalesOrderItemCommitInventory/end -->
+    <!-- salesOrder constants/start -->
+    <simpleType name="SalesOrderItemCreatePo">
+        <restriction base="xsd:string">
+            <enumeration value="_dropShipment"/>
+            <enumeration value="_specialOrder"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="SalesOrderOrderStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_pendingApproval"/>
+            <enumeration value="_pendingFulfillment"/>
+            <enumeration value="_cancelled"/>
+            <enumeration value="_partiallyFulfilled"/>
+            <enumeration value="_pendingBillingPartFulfilled"/>
+            <enumeration value="_pendingBilling"/>
+            <enumeration value="_fullyBilled"/>
+            <enumeration value="_closed"/>
+            <enumeration value="_undefined"/>
+        </restriction>
+    </simpleType>
+    <!-- salesOrder constants/end -->
+    <!-- itemFulfillment constants/start -->
+    <simpleType name="ItemFulfillmentExportTypeUps">
+        <restriction base="xsd:string">
+            <enumeration value="_domesticExports"/>
+            <enumeration value="_foreignExports"/>
+            <enumeration value="_foreignMilitarySales"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentLicenseExceptionUps">
+        <restriction base="xsd:string">
+            <enumeration value="_agr"/>
+            <enumeration value="_apr"/>
+            <enumeration value="_avs"/>
+            <enumeration value="_bag"/>
+            <enumeration value="_civ"/>
+            <enumeration value="_ctp"/>
+            <enumeration value="_enc"/>
+            <enumeration value="_gbs"/>
+            <enumeration value="_gft"/>
+            <enumeration value="_gov"/>
+            <enumeration value="_kmi"/>
+            <enumeration value="_lvs"/>
+            <enumeration value="_nlr"/>
+            <enumeration value="_rpl"/>
+            <enumeration value="_tmp"/>
+            <enumeration value="_tspa"/>
+            <enumeration value="_tsr"/>
+            <enumeration value="_tsu"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentMethodOfTransportUps">
+        <restriction base="xsd:string">
+            <enumeration value="_air"/>
+            <enumeration value="_airContainerized"/>
+            <enumeration value="_auto"/>
+            <enumeration value="_fixedTransportInstallations"/>
+            <enumeration value="_mail"/>
+            <enumeration value="_passengerHandcarried"/>
+            <enumeration value="_pedestrian"/>
+            <enumeration value="_rail"/>
+            <enumeration value="_railContainerized"/>
+            <enumeration value="_roadOther"/>
+            <enumeration value="_seaBarge"/>
+            <enumeration value="_seaContainerized"/>
+            <enumeration value="_seaNoncontainerized"/>
+            <enumeration value="_truck"/>
+            <enumeration value="_truckContainerized"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentThirdPartyTypeUps">
+        <restriction base="xsd:string">
+            <enumeration value="_consigneeBilling"/>
+            <enumeration value="_noneSelected"/>
+            <enumeration value="_thirdPartyBilling"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageUpsCodMethodUps">
+        <restriction base="xsd:string">
+            <enumeration value="_cashiersCheckMoneyOrder"/>
+            <enumeration value="_checkCashiersCheckMoneyOrder"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageUpsDeliveryConfUps">
+        <restriction base="xsd:string">
+            <enumeration value="_noneSelected"/>
+            <enumeration value="_adultSignatureRequired"/>
+            <enumeration value="_deliveryConfirmation"/>
+            <enumeration value="_signatureRequired"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageUpsPackagingUps">
+        <restriction base="xsd:string">
+            <enumeration value="_upsExpressBox"/>
+            <enumeration value="_upsLetter"/>
+            <enumeration value="_upsPak"/>
+            <enumeration value="_upsTube"/>
+            <enumeration value="_yourPackaging"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageUspsDeliveryConfUsps">
+        <restriction base="xsd:string">
+            <enumeration value="_deliveryConfirmation"/>
+            <enumeration value="_signatureConfirmation"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageUspsPackagingUsps">
+        <restriction base="xsd:string">
+            <enumeration value="_parcel"/>
+            <enumeration value="_flatRateBox"/>
+            <enumeration value="_flatRateEnvelope"/>
+            <enumeration value="_smallFlatRateBox"/>
+            <enumeration value="_mediumFlatRateBox"/>
+            <enumeration value="_largeFlatRateBox"/>
+            <enumeration value="_irregularPackage"/>
+            <enumeration value="_largePackage"/>
+            <enumeration value="_oversizedPackage"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentB13AFilingOptionFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_filedElectronically"/>
+            <enumeration value="_manuallyAttached"/>
+            <enumeration value="_notRequired"/>
+            <enumeration value="_summaryReporting"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentHomeDeliveryTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_appointment"/>
+            <enumeration value="_dateCertain"/>
+            <enumeration value="_evening"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentThirdPartyTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_billRecipient"/>
+            <enumeration value="_billThirdParty"/>
+            <enumeration value="_noneSelected"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExAdmPackageTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_bag"/>
+            <enumeration value="_barrel"/>
+            <enumeration value="_basketOrHamper"/>
+            <enumeration value="_box"/>
+            <enumeration value="_bucket"/>
+            <enumeration value="_bundle"/>
+            <enumeration value="_cage"/>
+            <enumeration value="_carton"/>
+            <enumeration value="_case"/>
+            <enumeration value="_chest"/>
+            <enumeration value="_container"/>
+            <enumeration value="_crate"/>
+            <enumeration value="_cylinder"/>
+            <enumeration value="_drum"/>
+            <enumeration value="_envelope"/>
+            <enumeration value="_package"/>
+            <enumeration value="_pail"/>
+            <enumeration value="_pallet"/>
+            <enumeration value="_parcel"/>
+            <enumeration value="_pieces"/>
+            <enumeration value="_reel"/>
+            <enumeration value="_roll"/>
+            <enumeration value="_sack"/>
+            <enumeration value="_shrinkWrapped"/>
+            <enumeration value="_skid"/>
+            <enumeration value="_tank"/>
+            <enumeration value="_toteBin"/>
+            <enumeration value="_tube"/>
+            <enumeration value="_unit"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExCodMethodFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_any"/>
+            <enumeration value="_cash"/>
+            <enumeration value="_guaranteedFunds"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExDeliveryConfFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_signatureRequired"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExPackagingFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_fedExBox"/>
+            <enumeration value="_fedEx10kgBox"/>
+            <enumeration value="_fedEx25kgBox"/>
+            <enumeration value="_fedExEnvelope"/>
+            <enumeration value="_fedExPak"/>
+            <enumeration value="_fedExTube"/>
+            <enumeration value="_yourPackaging"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExSignatureOptionsFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_adult"/>
+            <enumeration value="_direct"/>
+            <enumeration value="_indirect"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentTermsOfSaleFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_fob"/>
+            <enumeration value="_cf"/>
+            <enumeration value="_cif"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentShipStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_packed"/>
+            <enumeration value="_picked"/>
+            <enumeration value="_shipped"/>
+        </restriction>
+    </simpleType>
+    <!-- itemFulfillment constants/end -->
+    <!-- OpportunityStatus/start -->
+    <simpleType name="OpportunityStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_closedLost"/>
+            <enumeration value="_closedWon"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_issuedEstimate"/>
+        </restriction>
+    </simpleType>
+    <!-- OpportunityStatus/end -->
+    <!-- TransactionType constants/start -->
+    <simpleType name="TransactionType">
+        <restriction base="xsd:string">
+            <enumeration value="_assemblyBuild"/>
+            <enumeration value="_assemblyUnbuild"/>
+            <enumeration value="_binTransfer"/>
+            <enumeration value="_binWorksheet"/>
+            <enumeration value="_cashRefund"/>
+            <enumeration value="_cashSale"/>
+            <enumeration value="_check"/>
+            <enumeration value="_creditMemo"/>
+            <enumeration value="_customerDeposit"/>
+            <enumeration value="_customerPayment"/>
+            <enumeration value="_customerRefund"/>
+            <enumeration value="_deposit"/>
+            <enumeration value="_depositApplication"/>
+            <enumeration value="_estimate"/>
+            <enumeration value="_expenseReport"/>
+            <enumeration value="_inventoryAdjustment"/>
+            <enumeration value="_inventoryCostRevaluation"/>
+            <enumeration value="_inventoryTransfer"/>
+            <enumeration value="_invoice"/>
+            <enumeration value="_itemFulfillment"/>
+            <enumeration value="_itemReceipt"/>
+            <enumeration value="_journal"/>
+            <enumeration value="_opportunity"/>
+            <enumeration value="_paycheckJournal"/>
+            <enumeration value="_purchaseOrder"/>
+            <enumeration value="_returnAuthorization"/>
+            <enumeration value="_salesOrder"/>
+            <enumeration value="_transferOrder"/>
+            <enumeration value="_vendorBill"/>
+            <enumeration value="_vendorCredit"/>
+            <enumeration value="_vendorPayment"/>
+            <enumeration value="_vendorReturnAuthorization"/>
+            <enumeration value="_workOrder"/>
+            <enumeration value="_workOrderClose"/>
+            <enumeration value="_workOrderCompletion"/>
+            <enumeration value="_workOrderIssue"/>
+        </restriction>
+    </simpleType>
+    <!-- TransactionType constants/end -->
+    <!-- TransactionStatus constants/start -->
+    <simpleType name="TransactionStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_billCancelled"/>
+            <enumeration value="_billOpen"/>
+            <enumeration value="_billPaidInFull"/>
+            <enumeration value="_billPaymentOnlineBillPayPendingAccountingApproval"/>
+            <enumeration value="_billPaymentVoided"/>
+            <enumeration value="_billPendingApproval"/>
+            <enumeration value="_billRejected"/>
+            <enumeration value="_cashSaleDeposited"/>
+            <enumeration value="_cashSaleNotDeposited"/>
+            <enumeration value="_cashSaleUnapprovedPayment"/>
+            <enumeration value="_checkOnlineBillPayPendingAccountingApproval"/>
+            <enumeration value="_checkVoided"/>
+            <enumeration value="_commissionOverpaid"/>
+            <enumeration value="_commissionPaidInFull"/>
+            <enumeration value="_commissionPendingAccountingApproval"/>
+            <enumeration value="_commissionPendingPayment"/>
+            <enumeration value="_commissionRejectedByAccounting"/>
+            <enumeration value="_creditMemoFullyApplied"/>
+            <enumeration value="_creditMemoOpen"/>
+            <enumeration value="_customerDepositDeposited"/>
+            <enumeration value="_customerDepositFullyApplied"/>
+            <enumeration value="_customerDepositNotDeposited"/>
+            <enumeration value="_customerRefundVoided"/>
+            <enumeration value="_estimateClosed"/>
+            <enumeration value="_estimateExpired"/>
+            <enumeration value="_estimateOpen"/>
+            <enumeration value="_estimateProcessed"/>
+            <enumeration value="_estimateVoided"/>
+            <enumeration value="_expenseReportApprovedByAccounting"/>
+            <enumeration value="_expenseReportApprovedOverriddenByAccounting"/>
+            <enumeration value="_expenseReportInProgress"/>
+            <enumeration value="_expenseReportPaidInFull"/>
+            <enumeration value="_expenseReportPendingAccountingApproval"/>
+            <enumeration value="_expenseReportPendingSupervisorApproval"/>
+            <enumeration value="_expenseReportRejectedByAccounting"/>
+            <enumeration value="_expenseReportRejectedBySupervisor"/>
+            <enumeration value="_expenseReportRejectedOverriddenByAccounting"/>
+            <enumeration value="_invoiceOpen"/>
+            <enumeration value="_invoicePaidInFull"/>
+            <enumeration value="_invoicePendingApproval"/>
+            <enumeration value="_invoiceRejected"/>
+            <enumeration value="_itemFulfillmentPacked"/>
+            <enumeration value="_itemFulfillmentPicked"/>
+            <enumeration value="_itemFulfillmentShipped"/>
+            <enumeration value="_journalApprovedForPosting"/>
+            <enumeration value="_journalPendingApproval"/>
+            <enumeration value="_opportunityClosedLost"/>
+            <enumeration value="_opportunityClosedWon"/>
+            <enumeration value="_opportunityInProgress"/>
+            <enumeration value="_opportunityIssuedEstimate"/>
+            <enumeration value="_paycheckCommitted"/>
+            <enumeration value="_paycheckError"/>
+            <enumeration value="_paycheckPendingCommitment"/>
+            <enumeration value="_paycheckPendingTaxCalculation"/>
+            <enumeration value="_paycheckPreview"/>
+            <enumeration value="_paycheckReversed"/>
+            <enumeration value="_paycheckUndefined"/>
+            <enumeration value="_paymentDeposited"/>
+            <enumeration value="_paymentNotDeposited"/>
+            <enumeration value="_paymentUnapprovedPayment"/>
+            <enumeration value="_payrollLiabilityCheckVoided"/>
+            <enumeration value="_purchaseOrderClosed"/>
+            <enumeration value="_purchaseOrderFullyBilled"/>
+            <enumeration value="_purchaseOrderPartiallyReceived"/>
+            <enumeration value="_purchaseOrderPendingBill"/>
+            <enumeration value="_purchaseOrderPendingBillingPartiallyReceived"/>
+            <enumeration value="_purchaseOrderPendingReceipt"/>
+            <enumeration value="_purchaseOrderPendingSupervisorApproval"/>
+            <enumeration value="_purchaseOrderRejectedBySupervisor"/>
+            <enumeration value="_returnAuthorizationCancelled"/>
+            <enumeration value="_returnAuthorizationClosed"/>
+            <enumeration value="_returnAuthorizationPartiallyReceived"/>
+            <enumeration value="_returnAuthorizationPendingApproval"/>
+            <enumeration value="_returnAuthorizationPendingReceipt"/>
+            <enumeration value="_returnAuthorizationPendingRefund"/>
+            <enumeration value="_returnAuthorizationPendingRefundPartiallyReceived"/>
+            <enumeration value="_returnAuthorizationRefunded"/>
+            <enumeration value="_salesOrderBilled"/>
+            <enumeration value="_salesOrderCancelled"/>
+            <enumeration value="_salesOrderClosed"/>
+            <enumeration value="_salesOrderPartiallyFulfilled"/>
+            <enumeration value="_salesOrderPendingApproval"/>
+            <enumeration value="_salesOrderPendingBilling"/>
+            <enumeration value="_salesOrderPendingBillingPartiallyFulfilled"/>
+            <enumeration value="_salesOrderPendingFulfillment"/>
+            <enumeration value="_salesTaxPaymentOnlineBillPayPendingAccountingApproval"/>
+            <enumeration value="_salesTaxPaymentVoided"/>
+            <enumeration value="_statementChargeOpen"/>
+            <enumeration value="_statementChargePaidInFull"/>
+            <enumeration value="_taxLiabilityChequeVoided"/>
+            <enumeration value="_tegataPayableEndorsed"/>
+            <enumeration value="_tegataPayableIssued"/>
+            <enumeration value="_tegataPayablePaid"/>
+            <enumeration value="_tegataReceivablesCollected"/>
+            <enumeration value="_tegataReceivablesDiscounted"/>
+            <enumeration value="_tegataReceivablesEndorsed"/>
+            <enumeration value="_tegataReceivablesHolding"/>
+            <enumeration value="_transferOrderClosed"/>
+            <enumeration value="_transferOrderPartiallyFulfilled"/>
+            <enumeration value="_transferOrderPendingApproval"/>
+            <enumeration value="_transferOrderPendingFulfillment"/>
+            <enumeration value="_transferOrderPendingReceipt"/>
+            <enumeration value="_transferOrderPendingReceiptPartiallyFulfilled"/>
+            <enumeration value="_transferOrderReceived"/>
+            <enumeration value="_transferOrderRejected"/>
+            <enumeration value="_vendorReturnAuthorizationCancelled"/>
+            <enumeration value="_vendorReturnAuthorizationClosed"/>
+            <enumeration value="_vendorReturnAuthorizationCredited"/>
+            <enumeration value="_vendorReturnAuthorizationPartiallyReturned"/>
+            <enumeration value="_vendorReturnAuthorizationPendingApproval"/>
+            <enumeration value="_vendorReturnAuthorizationPendingCredit"/>
+            <enumeration value="_vendorReturnAuthorizationPendingCreditPartiallyReturned"/>
+            <enumeration value="_vendorReturnAuthorizationPendingReturn"/>
+            <enumeration value="_workOrderBuilt"/>
+            <enumeration value="_workOrderCancelled"/>
+            <enumeration value="_workOrderClosed"/>
+            <enumeration value="_workOrderPartiallyBuilt"/>
+            <enumeration value="_workOrderPendingBuild"/>
+            <enumeration value="_workOrderPlanned"/>
+        </restriction>
+    </simpleType>
+    <!-- TransactionStatus constants/end -->
+    <simpleType name="TransactionPaymentEventResult">
+        <restriction base="xsd:string">
+            <enumeration value="_accept"/>
+            <enumeration value="_holdOverride"/>
+            <enumeration value="_paymentHold"/>
+            <enumeration value="_reject"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransactionPaymentEventType">
+        <restriction base="xsd:string">
+            <enumeration value="_authorizationRequest"/>
+            <enumeration value="_captureRequest"/>
+            <enumeration value="_creditRequest"/>
+            <enumeration value="_overrideHold"/>
+            <enumeration value="_refundRequest"/>
+            <enumeration value="_saleRequest"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransactionPaymentEventHoldReason">
+        <restriction base="xsd:string">
+            <enumeration value="_authorizationDecline"/>
+            <enumeration value="_cardExpired"/>
+            <enumeration value="_cardInvalid"/>
+            <enumeration value="_externalFraudRejection"/>
+            <enumeration value="_externalFraudReview"/>
+            <enumeration value="_forwardedToPayerAuthentication"/>
+            <enumeration value="_forwardRequested"/>
+            <enumeration value="_gatewayError"/>
+            <enumeration value="_overridenBy"/>
+            <enumeration value="_partnerDecline"/>
+            <enumeration value="_systemError"/>
+            <enumeration value="_verbalAuthorizationRequested"/>
+            <enumeration value="_verificationRejection"/>
+            <enumeration value="_verificationRequired"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemFulfillmentPackageFedExCodFreightTypeFedEx/start -->
+    <simpleType name="ItemFulfillmentPackageFedExCodFreightTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_cODCharge"/>
+            <enumeration value="_noneSelected"/>
+            <enumeration value="_orderChargeNet"/>
+            <enumeration value="_orderChargeTotal"/>
+            <enumeration value="_shippingCharge"/>
+            <enumeration value="_totalCharge"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemFulfillmentPackageFedExCodFreightTypeFedEx/end -->
+    <simpleType name="TransactionLinkType">
+        <restriction base="xsd:string">
+            <enumeration value="_closedPeriodFxVariance"/>
+            <enumeration value="_closeWorkOrder"/>
+            <enumeration value="_cogsLink"/>
+            <enumeration value="_collectTegata"/>
+            <enumeration value="_commission"/>
+            <enumeration value="_deferredRevenueReallocation"/>
+            <enumeration value="_depositApplication"/>
+            <enumeration value="_depositRefundCheck"/>
+            <enumeration value="_discountTegata"/>
+            <enumeration value="_dropShipment"/>
+            <enumeration value="_endorseTegata"/>
+            <enumeration value="_estimateInvoicing"/>
+            <enumeration value="_intercompanyAdjustment"/>
+            <enumeration value="_inventoryCountAdjustment"/>
+            <enumeration value="_landedCost"/>
+            <enumeration value="_linkedReturnCost"/>
+            <enumeration value="_opportunityClose"/>
+            <enumeration value="_opportunityEstimate"/>
+            <enumeration value="_orderBillInvoice"/>
+            <enumeration value="_orderPickingPacking"/>
+            <enumeration value="_payment"/>
+            <enumeration value="_payTegata"/>
+            <enumeration value="_purchaseContractOrder"/>
+            <enumeration value="_purchaseOrderRequisition"/>
+            <enumeration value="_purchaseOrderToBlanket"/>
+            <enumeration value="_purchaseReturn"/>
+            <enumeration value="_receiptBill"/>
+            <enumeration value="_receiptFulfillment"/>
+            <enumeration value="_reimbursement"/>
+            <enumeration value="_revalueWorkOrder"/>
+            <enumeration value="_revenueAmortizatonRecognition"/>
+            <enumeration value="_revenueCommitted"/>
+            <enumeration value="_saleReturn"/>
+            <enumeration value="_salesOrderDegross"/>
+            <enumeration value="_salesOrderDeposit"/>
+            <enumeration value="_salesOrderRevenueRevaluation"/>
+            <enumeration value="_sourceOfRevenueContract"/>
+            <enumeration value="_specialOrder"/>
+            <enumeration value="_vendorBillVariance"/>
+            <enumeration value="_wipBuild"/>
+            <enumeration value="_workOrderBuild"/>
+        </restriction>
+    </simpleType>
+    <!-- ForecastType/start -->
+    <simpleType name="ForecastType">
+        <restriction base="xsd:string">
+            <enumeration value="_omitted"/>
+            <enumeration value="_worstCase"/>
+            <enumeration value="_mostLikely"/>
+            <enumeration value="_upside"/>
+        </restriction>
+    </simpleType>
+    <!-- ForecastType/end -->
+    <simpleType name="TransactionLineType">
+        <restriction base="xsd:string">
+            <enumeration value="_adjustedQuantity"/>
+            <enumeration value="_billExchangeRateVariance"/>
+            <enumeration value="_billPriceVariance"/>
+            <enumeration value="_billQuantityVariance"/>
+            <enumeration value="_countQuantity"/>
+            <enumeration value="_dropshipExpense"/>
+            <enumeration value="_gainLoss"/>
+            <enumeration value="_item"/>
+            <enumeration value="_materialOverhead"/>
+            <enumeration value="_nonReimbursuableExpenseOffset"/>
+            <enumeration value="_nonReimbursuableExpenseOriginal"/>
+            <enumeration value="_productionPriceVariance"/>
+            <enumeration value="_productionQuantityVariance"/>
+            <enumeration value="_purchasePriceVariance"/>
+            <enumeration value="_receiving"/>
+            <enumeration value="_routingItem"/>
+            <enumeration value="_routingWorkInProcess"/>
+            <enumeration value="_scrap"/>
+            <enumeration value="_shipping"/>
+            <enumeration value="_snapshotQuantity"/>
+            <enumeration value="_totalBillVariance"/>
+            <enumeration value="_unbuildVariance"/>
+            <enumeration value="_workInProcess"/>
+            <enumeration value="_workInProcessVariance"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransactionApprovalStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_approved"/>
+            <enumeration value="_pendingApproval"/>
+            <enumeration value="_rejected"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentPackageFedExPriorityAlertTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_fedexPriorityAlert"/>
+            <enumeration value="_fedexPriorityAlertPlus"/>
+            <enumeration value="_noneSelected"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentHazmatTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_dangerousGoods"/>
+            <enumeration value="_hazmat"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentAncillaryEndorsementFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_addressCorrection"/>
+            <enumeration value="_carrierLeaveIfNoResponse"/>
+            <enumeration value="_changeService"/>
+            <enumeration value="_forwardingService"/>
+            <enumeration value="_returnService"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemFulfillmentAccessibilityTypeFedEx">
+        <restriction base="xsd:string">
+            <enumeration value="_accessible"/>
+            <enumeration value="_inaccessible"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TransactionChargeType">
+        <restriction base="xsd:string">
+            <enumeration value="_concession"/>
+            <enumeration value="_fixedDate"/>
+            <enumeration value="_fixedUsage"/>
+            <enumeration value="_milestone"/>
+            <enumeration value="_oneTime"/>
+            <enumeration value="_penalty"/>
+            <enumeration value="_projectProgress"/>
+            <enumeration value="_recurringService"/>
+            <enumeration value="_timeBased"/>
+            <enumeration value="_variableUsage"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="AccountingTransactionRevCommitStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_committed"/>
+            <enumeration value="_partiallyCommitted"/>
+            <enumeration value="_pendingCommitment"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="AccountingTransactionRevenueStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_completed"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_onRevCommitment"/>
+            <enumeration value="_pending"/>
+        </restriction>
+    </simpleType>
+</schema>

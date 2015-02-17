@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:listSite="urn:website_2014_2.lists.webservices.netsuite.com" xmlns:listSiteTyp="urn:types.website_2014_2.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2014_2.platform.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2014_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2014_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2014_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:website_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <import namespace="urn:core_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/core.xsd"/>
+    <import namespace="urn:common_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/common.xsd"/>
+    <import namespace="urn:types.common_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/commonTypes.xsd"/>
+    <import namespace="urn:types.website_2014_2.lists.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/lists/v2014_2_0/websiteTypes.xsd"/>
+    <!-- siteCategory/start -->
+    <element name="SiteCategory" type="listSite:SiteCategory"/>
+    <complexType name="SiteCategory">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="website" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="itemId" type="xsd:string" minOccurs="0"/>
+                    <element name="parentCategory" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="categoryListLayout" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="itemListLayout" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="relatedItemsListLayout" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="correlatedItemsListLayout" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="isOnline" type="xsd:boolean" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="storeDetailedDescription" type="xsd:string" minOccurs="0"/>
+                    <element name="storeDisplayThumbnail" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="storeDisplayImage" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="pageTitle" type="xsd:string" minOccurs="0"/>
+                    <element name="metaTagHtml" type="xsd:string" minOccurs="0"/>
+                    <element name="excludeFromSitemap" type="xsd:boolean" minOccurs="0"/>
+                    <element name="urlComponent" type="xsd:string" minOccurs="0"/>
+                    <element name="sitemapPriority" type="platformCommonTyp:SitemapPriority" minOccurs="0"/>
+                    <element name="searchKeywords" type="xsd:string" minOccurs="0"/>
+                    <element name="presentationItemList" type="listSite:SiteCategoryPresentationItemList" minOccurs="0"/>
+                    <element name="translationsList" type="listSite:SiteCategoryTranslationList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="SiteCategoryTranslation">
+        <sequence>
+            <element name="locale" type="platformCommonTyp:Language" minOccurs="0"/>
+            <element name="language" type="xsd:string" minOccurs="0"/>
+            <element name="displayName" type="xsd:string" minOccurs="0"/>
+            <element name="description" type="xsd:string" minOccurs="0"/>
+            <element name="storeDetailedDescription" type="xsd:string" minOccurs="0"/>
+            <element name="pageTitle" type="xsd:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="SiteCategoryTranslationList">
+        <sequence>
+            <element name="translation" type="listSite:SiteCategoryTranslation" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="SiteCategoryPresentationItemList">
+        <sequence>
+            <element name="presentationItem" type="platformCommon:PresentationItem" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="siteCategorySearch" type="listSite:SiteCategorySearch"/>
+    <complexType name="SiteCategorySearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:SiteCategorySearchBasic" minOccurs="0"/>
+                    <element name="shopperJoin" type="platformCommon:CustomerSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="SiteCategorySearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="listSite:SiteCategorySearch" minOccurs="0"/>
+                    <element name="columns" type="listSite:SiteCategorySearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchId" type="xsd:string"/>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="SiteCategorySearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:SiteCategorySearchRowBasic" minOccurs="0"/>
+                    <element name="shopperJoin" type="platformCommon:CustomerSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- siteCategory/end -->
+</schema>

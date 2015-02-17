@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:listMkt="urn:marketing_2014_2.lists.webservices.netsuite.com" xmlns:listMktTyp="urn:types.marketing_2014_2.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2014_2.platform.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2014_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2014_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2014_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:marketing_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <import namespace="urn:core_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/core.xsd"/>
+    <import namespace="urn:common_2014_2.platform.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/platform/v2014_2_0/common.xsd"/>
+    <import namespace="urn:types.marketing_2014_2.lists.webservices.netsuite.com" schemaLocation="https://webservices.netsuite.com/xsd/lists/v2014_2_0/marketingTypes.xsd"/>
+    <!-- campaign/start -->
+    <element name="Campaign" type="listMkt:Campaign"/>
+    <complexType name="Campaign">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="campaignId" type="xsd:string" minOccurs="0"/>
+                    <element name="title" type="xsd:string" minOccurs="0"/>
+                    <element name="category" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="owner" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="startDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="endDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="url" type="xsd:string" minOccurs="0"/>
+                    <element name="baseCost" type="xsd:double" minOccurs="0"/>
+                    <element name="cost" type="xsd:double" minOccurs="0"/>
+                    <element name="expectedRevenue" type="xsd:double" minOccurs="0"/>
+                    <element name="message" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                    <element name="local" type="xsd:boolean" minOccurs="0"/>
+                    <element name="totalRevenue" type="xsd:double" minOccurs="0"/>
+                    <element name="roi" type="xsd:double" minOccurs="0"/>
+                    <element name="profit" type="xsd:double" minOccurs="0"/>
+                    <element name="costPerCustomer" type="xsd:double" minOccurs="0"/>
+                    <element name="convCostPerCustomer" type="xsd:double" minOccurs="0"/>
+                    <element name="conversions" type="xsd:long" minOccurs="0"/>
+                    <element name="leadsGenerated" type="xsd:long" minOccurs="0"/>
+                    <element name="uniqueVisitors" type="xsd:long" minOccurs="0"/>
+                    <element name="vertical" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="audience" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="offer" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="promotionCode" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="itemList" type="platformCore:RecordRefList" minOccurs="0"/>
+                    <element name="family" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="searchEngine" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="keyword" type="xsd:string" minOccurs="0"/>
+                    <element name="campaignEmailList" type="listMkt:CampaignEmailList" minOccurs="0"/>
+                    <element name="campaignDirectMailList" type="listMkt:CampaignDirectMailList" minOccurs="0"/>
+                    <element name="campaignEventList" type="listMkt:CampaignEventList" minOccurs="0"/>
+                    <element name="eventResponseList" type="listMkt:CampaignEventResponseList" minOccurs="0"/>
+                    <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CampaignEmail">
+        <sequence>
+            <element name="internalId" type="xsd:string" minOccurs="0"/>
+            <element name="campaignGroup" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="template" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="description" type="xsd:string" minOccurs="0"/>
+            <element name="subscription" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="channel" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="cost" type="xsd:double" minOccurs="0"/>
+            <element name="status" type="listMktTyp:CampaignCampaignEmailStatus" minOccurs="0"/>
+            <element name="dateScheduled" type="xsd:dateTime" minOccurs="0"/>
+            <element name="promoCode" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="CampaignEmailList">
+        <sequence>
+            <element name="campaignEmail" type="listMkt:CampaignEmail" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="CampaignDirectMail">
+        <sequence>
+            <element name="internalId" type="xsd:string" minOccurs="0"/>
+            <element name="campaignGroup" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="template" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="description" type="xsd:string" minOccurs="0"/>
+            <element name="subscription" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="channel" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="cost" type="xsd:double" minOccurs="0"/>
+            <element name="status" type="listMktTyp:CampaignCampaignDirectMailStatus" minOccurs="0"/>
+            <element name="dateScheduled" type="xsd:dateTime" minOccurs="0"/>
+            <element name="promoCode" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="CampaignDirectMailList">
+        <sequence>
+            <element name="campaignDirectMail" type="listMkt:CampaignDirectMail" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="CampaignEvent">
+        <sequence>
+            <element name="internalId" type="xsd:string" minOccurs="0"/>
+            <element name="campaignGroup" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="description" type="xsd:string" minOccurs="0"/>
+            <element name="subscription" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="channel" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="cost" type="xsd:double" minOccurs="0"/>
+            <element name="status" type="listMktTyp:CampaignCampaignEventStatus" minOccurs="0"/>
+            <element name="dateScheduled" type="xsd:dateTime" minOccurs="0"/>
+            <element name="promoCode" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="customFieldList" type="platformCore:CustomFieldList" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="CampaignEventList">
+        <sequence>
+            <element name="campaignEvent" type="listMkt:CampaignEvent" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="CampaignEventResponse">
+        <sequence>
+            <element name="name" type="xsd:string" minOccurs="0"/>
+            <element name="type" type="xsd:string" minOccurs="0"/>
+            <element name="dateSent" type="xsd:dateTime" minOccurs="0"/>
+            <element name="sent" type="xsd:double" minOccurs="0"/>
+            <element name="opened" type="xsd:double" minOccurs="0"/>
+            <element name="openedRatio" type="xsd:double" minOccurs="0"/>
+            <element name="clickedThru" type="xsd:double" minOccurs="0"/>
+            <element name="clickedThruRatio" type="xsd:double" minOccurs="0"/>
+            <element name="responded" type="xsd:long" minOccurs="0"/>
+            <element name="respondedRatio" type="xsd:double" minOccurs="0"/>
+            <element name="unsubscribed" type="xsd:long" minOccurs="0"/>
+            <element name="unsubscribedRatio" type="xsd:double" minOccurs="0"/>
+            <element name="bounced" type="xsd:long" minOccurs="0"/>
+            <element name="bouncedRatio" type="xsd:double" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="CampaignEventResponseList">
+        <sequence>
+            <element name="eventResponse" type="listMkt:CampaignEventResponse" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="campaignSearch" type="listMkt:CampaignSearch"/>
+    <complexType name="CampaignSearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:CampaignSearchBasic" minOccurs="0"/>
+                    <element name="campaignRecipientJoin" type="platformCommon:EntitySearchBasic" minOccurs="0"/>
+                    <element name="fileJoin" type="platformCommon:FileSearchBasic" minOccurs="0"/>
+                    <element name="messagesJoin" type="platformCommon:MessageSearchBasic" minOccurs="0"/>
+                    <element name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" minOccurs="0"/>
+                    <element name="promotionCodeJoin" type="platformCommon:PromotionCodeSearchBasic" minOccurs="0"/>
+                    <element name="transactionJoin" type="platformCommon:TransactionSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="userNotesJoin" type="platformCommon:NoteSearchBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchJoin" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CampaignSearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="listMkt:CampaignSearch" minOccurs="0"/>
+                    <element name="columns" type="listMkt:CampaignSearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchId" type="xsd:string"/>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CampaignSearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:CampaignSearchRowBasic" minOccurs="0"/>
+                    <element name="campaignRecipientJoin" type="platformCommon:EntitySearchRowBasic" minOccurs="0"/>
+                    <element name="fileJoin" type="platformCommon:FileSearchRowBasic" minOccurs="0"/>
+                    <element name="messagesJoin" type="platformCommon:MessageSearchRowBasic" minOccurs="0"/>
+                    <element name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" minOccurs="0"/>
+                    <element name="promotionCodeJoin" type="platformCommon:PromotionCodeSearchRowBasic" minOccurs="0"/>
+                    <element name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaign/end -->
+    <!-- campaignCategory/start -->
+    <element name="CampaignCategory" type="listMkt:CampaignCategory"/>
+    <complexType name="CampaignCategory">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="parent" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="leadSource" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isexternal" type="xsd:boolean" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignCategory/end -->
+    <!-- campaignAudience/start -->
+    <element name="CampaignAudience" type="listMkt:CampaignAudience"/>
+    <complexType name="CampaignAudience">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignAudience/end -->
+    <!-- campaignFamily/start -->
+    <element name="CampaignFamily" type="listMkt:CampaignFamily"/>
+    <complexType name="CampaignFamily">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignFamily/end -->
+    <!-- campaignSearchEngine/start -->
+    <element name="CampaignSearchEngine" type="listMkt:CampaignSearchEngine"/>
+    <complexType name="CampaignSearchEngine">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignSearchEngine/end -->
+    <!-- campaignChannel/start -->
+    <element name="CampaignChannel" type="listMkt:CampaignChannel"/>
+    <complexType name="CampaignChannel">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="eventType" type="listMktTyp:CampaignChannelEventType" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignChannel/end -->
+    <!-- campaignOffer/start -->
+    <element name="CampaignOffer" type="listMkt:CampaignOffer"/>
+    <complexType name="CampaignOffer">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignOffer/end -->
+    <!-- campaignResponse/start -->
+    <element name="CampaignResponse" type="listMkt:CampaignResponse"/>
+    <complexType name="CampaignResponse">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="entity" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="leadSource" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="campaignEvent" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="campaignResponseDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="channel" type="xsd:string" minOccurs="0"/>
+                    <element name="response" type="listMktTyp:CampaignResponseResponse" minOccurs="0"/>
+                    <element name="note" type="xsd:string" minOccurs="0"/>
+                    <element name="responsesList" type="listMkt:CampaignResponseResponsesList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CampaignResponseResponses">
+        <sequence>
+            <element name="response" type="xsd:string" minOccurs="0"/>
+            <element name="responseDate" type="xsd:string" minOccurs="0"/>
+            <element name="author" type="xsd:string" minOccurs="0"/>
+            <element name="note" type="xsd:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="CampaignResponseResponsesList">
+        <sequence>
+            <element name="responses" type="listMkt:CampaignResponseResponses" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <!-- campaignResponse/end -->
+    <!-- campaignVertical/start -->
+    <element name="CampaignVertical" type="listMkt:CampaignVertical"/>
+    <complexType name="CampaignVertical">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignVertical/end -->
+    <!-- campaignSubscription/start -->
+    <element name="CampaignSubscription" type="listMkt:CampaignSubscription"/>
+    <complexType name="CampaignSubscription">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="subscribedByDefault" type="xsd:boolean" minOccurs="0"/>
+                    <element name="unsubscribed" type="xsd:boolean" minOccurs="0"/>
+                    <element name="externalName" type="xsd:string" minOccurs="0"/>
+                    <element name="externalDescription" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <!-- campaignSubscription/end -->
+    <element name="promotionCode" type="listMkt:PromotionCode"/>
+    <complexType name="PromotionCode">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="implementation" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="customForm" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="useType" type="listMktTyp:PromotionCodeUseType" minOccurs="0"/>
+                    <element name="displayLineDiscounts" type="xsd:boolean" minOccurs="0"/>
+                    <element name="code" type="xsd:string" minOccurs="0"/>
+                    <element name="codePattern" type="xsd:string" minOccurs="0"/>
+                    <element name="numberToGenerate" type="xsd:long" minOccurs="0"/>
+                    <element name="description" type="xsd:string" minOccurs="0"/>
+                    <element name="isInactive" type="xsd:boolean" minOccurs="0"/>
+                    <element name="discount" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="rate" type="xsd:string" minOccurs="0"/>
+                    <element name="discountType" type="xsd:boolean" minOccurs="0"/>
+                    <element name="applyDiscountTo" type="listMktTyp:PromotionCodeApplyDiscountTo" minOccurs="0"/>
+                    <element name="freeShipMethod" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="minimumOrderAmount" type="xsd:double" minOccurs="0"/>
+                    <element name="startDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="endDate" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="isPublic" type="xsd:boolean" minOccurs="0"/>
+                    <element name="currencyList" type="listMkt:PromotionCodeCurrencyList" minOccurs="0"/>
+                    <element name="excludeItems" type="xsd:boolean" minOccurs="0"/>
+                    <element name="name" type="xsd:string" minOccurs="0"/>
+                    <element name="itemsList" type="listMkt:PromotionCodeItemsList" minOccurs="0"/>
+                    <element name="partnersList" type="listMkt:PromotionCodePartnersList" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PromotionCodePartners">
+        <sequence>
+            <element name="partner" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="code" type="xsd:string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PromotionCodePartnersList">
+        <sequence>
+            <element name="partners" type="listMkt:PromotionCodePartners" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <complexType name="PromotionCodeItems">
+        <sequence>
+            <element name="item" type="platformCore:RecordRef" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PromotionCodeItemsList">
+        <sequence>
+            <element name="items" type="listMkt:PromotionCodeItems" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="promotionCodeSearch" type="listMkt:PromotionCodeSearch"/>
+    <complexType name="PromotionCodeSearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:PromotionCodeSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchJoin" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PromotionCodeSearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="listMkt:PromotionCodeSearch" minOccurs="0"/>
+                    <element name="columns" type="listMkt:PromotionCodeSearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+                <attribute name="savedSearchId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PromotionCodeSearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:PromotionCodeSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                    <element name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PromotionCodeCurrency">
+        <sequence>
+            <element name="currency" type="platformCore:RecordRef" minOccurs="0"/>
+            <element name="minimumOrderAmount" type="xsd:double" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="PromotionCodeCurrencyList">
+        <sequence>
+            <element name="currency" type="listMkt:PromotionCodeCurrency" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="replaceAll" type="xsd:boolean" default="true"/>
+    </complexType>
+    <element name="couponCode" type="listMkt:CouponCode"/>
+    <complexType name="CouponCode">
+        <complexContent>
+            <extension base="platformCore:Record">
+                <sequence>
+                    <element name="promotion" type="platformCore:RecordRef" minOccurs="1"/>
+                    <element name="code" type="xsd:string" minOccurs="1"/>
+                    <element name="recipient" type="platformCore:RecordRef" minOccurs="0"/>
+                    <element name="dateSent" type="xsd:dateTime" minOccurs="0"/>
+                    <element name="used" type="xsd:boolean" minOccurs="0"/>
+                    <element name="useCount" type="xsd:long" minOccurs="0"/>
+                </sequence>
+                <!-- primary record internalId -->
+                <attribute name="internalId" type="xsd:string"/>
+                <attribute name="externalId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="couponCodeSearch" type="listMkt:CouponCodeSearch"/>
+    <complexType name="CouponCodeSearch">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="basic" type="platformCommon:CouponCodeSearchBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchBasic" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CouponCodeSearchAdvanced">
+        <complexContent>
+            <extension base="platformCore:SearchRecord">
+                <sequence>
+                    <element name="criteria" type="listMkt:CouponCodeSearch" minOccurs="0"/>
+                    <element name="columns" type="listMkt:CouponCodeSearchRow" minOccurs="0"/>
+                </sequence>
+                <attribute name="savedSearchScriptId" type="xsd:string"/>
+                <attribute name="savedSearchId" type="xsd:string"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CouponCodeSearchRow">
+        <complexContent>
+            <extension base="platformCore:SearchRow">
+                <sequence>
+                    <element name="basic" type="platformCommon:CouponCodeSearchRowBasic" minOccurs="0"/>
+                    <element name="userJoin" type="platformCommon:EmployeeSearchRowBasic" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

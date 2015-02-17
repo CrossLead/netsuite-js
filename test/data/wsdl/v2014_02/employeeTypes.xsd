@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listEmpTyp="urn:types.employees_2014_2.lists.webservices.netsuite.com" targetNamespace="urn:types.employees_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- EmployeePayFrequency/start -->
+    <simpleType name="EmployeePayFrequency">
+        <restriction base="xsd:string">
+            <enumeration value="_annually"/>
+            <enumeration value="_custom"/>
+            <enumeration value="_daily"/>
+            <enumeration value="_endOfPeriod"/>
+            <enumeration value="_everyFourWeeks"/>
+            <enumeration value="_everyThreeYears"/>
+            <enumeration value="_everyTwoMonths"/>
+            <enumeration value="_everyTwoWeeks"/>
+            <enumeration value="_everyTwoYears"/>
+            <enumeration value="_hourly"/>
+            <enumeration value="_monthly"/>
+            <enumeration value="_never"/>
+            <enumeration value="_oneTime"/>
+            <enumeration value="_quarterly"/>
+            <enumeration value="_startOfPeriod"/>
+            <enumeration value="_twiceAMonth"/>
+            <enumeration value="_twiceAYear"/>
+            <enumeration value="_weekly"/>
+        </restriction>
+    </simpleType>
+    <!-- EmployeePayFrequency/end -->
+    <!-- EmployeeUseTimeData/start -->
+    <simpleType name="EmployeeUseTimeData">
+        <restriction base="xsd:string">
+            <enumeration value="_wage"/>
+            <enumeration value="_salary"/>
+        </restriction>
+    </simpleType>
+    <!-- EmployeeUseTimeData/end -->
+    <!-- EmployeeCommissionPaymentPreference/start -->
+    <simpleType name="EmployeeCommissionPaymentPreference">
+        <restriction base="xsd:string">
+            <enumeration value="_accountsPayable"/>
+            <enumeration value="_payroll"/>
+            <enumeration value="_systemPreference"/>
+        </restriction>
+    </simpleType>
+    <!-- EmployeeCommissionPaymentPreference/end -->
+    <!-- Gender/start -->
+    <simpleType name="Gender">
+        <restriction base="xsd:string">
+            <enumeration value="_omitted"/>
+            <enumeration value="_female"/>
+            <enumeration value="_male"/>
+        </restriction>
+    </simpleType>
+    <!-- Gender/end -->
+    <simpleType name="EmployeeAccruedTimeAccrualMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_lumpSums"/>
+            <enumeration value="_perHourWorked"/>
+            <enumeration value="_perPayPeriod"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="EmployeeDirectDepositAccountStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_active"/>
+            <enumeration value="_pending"/>
+            <enumeration value="_verifying"/>
+            <enumeration value="_failed"/>
+            <enumeration value="_inactive"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="PayrollItemItemTypeNoHierarchy">
+        <restriction base="xsd:string">
+            <enumeration value="_addition"/>
+            <enumeration value="_commission"/>
+            <enumeration value="_deduction"/>
+            <enumeration value="_directDeposit"/>
+            <enumeration value="_disability"/>
+            <enumeration value="_earning"/>
+            <enumeration value="_employerContribution"/>
+            <enumeration value="_expense"/>
+            <enumeration value="_federal"/>
+            <enumeration value="_medicare"/>
+            <enumeration value="_other"/>
+            <enumeration value="_salary"/>
+            <enumeration value="_sick"/>
+            <enumeration value="_socialSecurity"/>
+            <enumeration value="_state"/>
+            <enumeration value="_tax"/>
+            <enumeration value="_unemployment"/>
+            <enumeration value="_vacation"/>
+            <enumeration value="_wage"/>
+        </restriction>
+    </simpleType>
+</schema>

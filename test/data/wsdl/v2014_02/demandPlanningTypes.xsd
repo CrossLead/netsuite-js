@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:demandPlanningTyp="urn:types.demandplanning_2014_2.transactions.webservices.netsuite.com" targetNamespace="urn:types.demandplanning_2014_2.transactions.webservices.netsuite.com" elementFormDefault="qualified">
+    <simpleType name="DemandPlanCalendarType">
+        <restriction base="xsd:string">
+            <enumeration value="_daily"/>
+            <enumeration value="_monthly"/>
+            <enumeration value="_weekly"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="DemandPlanMonth">
+        <restriction base="xsd:string">
+            <enumeration value="_april"/>
+            <enumeration value="_august"/>
+            <enumeration value="_december"/>
+            <enumeration value="_february"/>
+            <enumeration value="_january"/>
+            <enumeration value="_july"/>
+            <enumeration value="_june"/>
+            <enumeration value="_march"/>
+            <enumeration value="_may"/>
+            <enumeration value="_november"/>
+            <enumeration value="_october"/>
+            <enumeration value="_september"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="DayOfTheWeek">
+        <restriction base="xsd:string">
+            <enumeration value="_sunday"/>
+            <enumeration value="_monday"/>
+            <enumeration value="_tuesday"/>
+            <enumeration value="_wednesday"/>
+            <enumeration value="_thursday"/>
+            <enumeration value="_friday"/>
+            <enumeration value="_saturday"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemDemandPlanProjectionMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_linearRegression"/>
+            <enumeration value="_movingAverage"/>
+            <enumeration value="_salesForecast"/>
+            <enumeration value="_seasonalAverage"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemSupplyPlanOrderType">
+        <restriction base="xsd:string">
+            <enumeration value="_purchaseOrder"/>
+            <enumeration value="_transferOrder"/>
+            <enumeration value="_workOrder"/>
+        </restriction>
+    </simpleType>
+</schema>

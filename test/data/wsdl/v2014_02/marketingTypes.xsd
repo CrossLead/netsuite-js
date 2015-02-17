@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:listMktTyp="urn:types.marketing_2014_2.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:types.marketing_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- CampaignCampaignDirectMailStatus/start -->
+    <simpleType name="CampaignCampaignDirectMailStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_completed"/>
+            <enumeration value="_execute"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_notStarted"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignCampaignDirectMailStatus/end -->
+    <!-- CampaignCampaignEmailStatus/start -->
+    <simpleType name="CampaignCampaignEmailStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_execute"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_notStarted"/>
+            <enumeration value="_sent"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignCampaignEmailStatus/end -->
+    <!-- CampaignCampaignEventStatus/start -->
+    <simpleType name="CampaignCampaignEventStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_completed"/>
+            <enumeration value="_execute"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_notStarted"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignCampaignEventStatus/end -->
+    <!-- CampaignChannelEventType/start -->
+    <simpleType name="CampaignChannelEventType">
+        <restriction base="xsd:string">
+            <enumeration value="_directMail"/>
+            <enumeration value="_email"/>
+            <enumeration value="_integration"/>
+            <enumeration value="_other"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignChannelEventType/end -->
+    <!-- CampaignResponseResponse/start -->
+    <simpleType name="CampaignResponseResponse">
+        <restriction base="xsd:string">
+            <enumeration value="_bounced"/>
+            <enumeration value="_clickedThru"/>
+            <enumeration value="_purchased"/>
+            <enumeration value="_received"/>
+            <enumeration value="_responded"/>
+            <enumeration value="_sent"/>
+            <enumeration value="_subscribed"/>
+            <enumeration value="_unsubscribed"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignResponseResponse/end -->
+    <!-- CampaignCampaignEventType/start -->
+    <simpleType name="CampaignCampaignEventType">
+        <restriction base="xsd:string">
+            <enumeration value="_default"/>
+            <enumeration value="_directMail"/>
+            <enumeration value="_email"/>
+            <enumeration value="_integration"/>
+            <enumeration value="_leadNurturingEmail"/>
+            <enumeration value="_other"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignCampaignEventType/end -->
+    <!-- CampaignResponse/start -->
+    <simpleType name="CampaignResponse">
+        <restriction base="xsd:string">
+            <enumeration value="_clickedThrough"/>
+            <enumeration value="_failedDeliveryFailure"/>
+            <enumeration value="_failedInvalidAddress"/>
+            <enumeration value="_failedOther"/>
+            <enumeration value="_failedSpam"/>
+            <enumeration value="_failedTemplateError"/>
+            <enumeration value="_failedUnexpectedError"/>
+            <enumeration value="_invalidSenderAddress"/>
+            <enumeration value="_mailboxDisabled"/>
+            <enumeration value="_mailboxIsFull"/>
+            <enumeration value="_mailboxNotAcceptingMessages"/>
+            <enumeration value="_mailProtocolIssues"/>
+            <enumeration value="_mediaError"/>
+            <enumeration value="_messageExceedsSizeLengthLimits"/>
+            <enumeration value="_networkServerIssues"/>
+            <enumeration value="_opened"/>
+            <enumeration value="_purchased"/>
+            <enumeration value="_queued"/>
+            <enumeration value="_received"/>
+            <enumeration value="_responded"/>
+            <enumeration value="_securityIssues"/>
+            <enumeration value="_sent"/>
+            <enumeration value="_skippedDueToPreviousHardBounce"/>
+            <enumeration value="_subscribed"/>
+            <enumeration value="_tooManyRecipients"/>
+            <enumeration value="_unsubscribed"/>
+            <enumeration value="_unsubscribedByFeedbackLoop"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignResponse/end -->
+    <!-- CampaignStatus/start -->
+    <simpleType name="CampaignStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_closed"/>
+            <enumeration value="_completed"/>
+            <enumeration value="_execute"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_scheduled"/>
+            <enumeration value="_sent"/>
+            <enumeration value="_toPrint"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignStatus/end -->
+    <!-- PromotionCodeApplyDiscountTo/start -->
+    <simpleType name="PromotionCodeApplyDiscountTo">
+        <restriction base="xsd:string">
+            <enumeration value="_allSales"/>
+            <enumeration value="_firstSaleOnly"/>
+        </restriction>
+    </simpleType>
+    <!-- PromotionCodeApplyDiscountTo/end -->
+    <!-- CampaignResponseCategory/start -->
+    <simpleType name="CampaignResponseCategory">
+        <restriction base="xsd:string">
+            <enumeration value="_bounced"/>
+            <enumeration value="_clickedThrough"/>
+            <enumeration value="_failed"/>
+            <enumeration value="_purchased"/>
+            <enumeration value="_queued"/>
+            <enumeration value="_received"/>
+            <enumeration value="_responded"/>
+            <enumeration value="_sent"/>
+            <enumeration value="_subscribed"/>
+            <enumeration value="_unsubscribed"/>
+        </restriction>
+    </simpleType>
+    <!-- CampaignResponseCategory/end -->
+    <simpleType name="PromotionCodeUseType">
+        <restriction base="xsd:string">
+            <enumeration value="_multipleUses"/>
+            <enumeration value="_singleUse"/>
+        </restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listAcctTyp="urn:types.accounting_2014_2.lists.webservices.netsuite.com" targetNamespace="urn:types.accounting_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- contactCategory constants/start -->
+    <!-- contactCategory constants/end -->
+    <!-- customerCategory constants/start -->
+    <!-- customerCategory constants/end -->
+    <!-- priceLevel constants/start -->
+    <!-- priceLevel constants/end -->
+    <!-- winLossReason constants/start -->
+    <!-- winLossReason constants/end -->
+    <!-- term constants/start -->
+    <!-- term constants/end -->
+    <!-- noteType constants/start -->
+    <!-- noteType constants/end -->
+    <!-- paymentMethod constants/start -->
+    <!-- paymentMethod constants/end -->
+    <!-- leadSource constants/start -->
+    <!-- leadSource constants/end -->
+    <!-- descriptionItem constants/start -->
+    <!-- descriptionItem constants/end -->
+    <!-- discountItem constants/start -->
+    <!-- discountItem constants/end -->
+    <!-- markupItem constants/start -->
+    <!-- markupItem constants/end -->
+    <!-- paymentItem constants/start -->
+    <!-- paymentItem constants/end -->
+    <!-- subtotalItem constants/start -->
+    <!-- subtotalItem constants/end -->
+    <!-- currency constants/start -->
+    <simpleType name="CurrencyLocale">
+        <restriction base="xsd:string">
+            <enumeration value="_afghanistanPashto"/>
+            <enumeration value="_afghanistanPersian"/>
+            <enumeration value="_alandIslandsSwedish"/>
+            <enumeration value="_albaniaAlbanian"/>
+            <enumeration value="_algeriaArabic"/>
+            <enumeration value="_angolaPortuguese"/>
+            <enumeration value="_anguillaEnglish"/>
+            <enumeration value="_antiguaAndBarbudaEnglish"/>
+            <enumeration value="_argentinaSpanish"/>
+            <enumeration value="_armeniaArmenian"/>
+            <enumeration value="_arubaEnglish"/>
+            <enumeration value="_arubaPortuguese"/>
+            <enumeration value="_australiaEnglish"/>
+            <enumeration value="_austriaGerman"/>
+            <enumeration value="_azerbaijanAzerbaijani"/>
+            <enumeration value="_bahamasEnglish"/>
+            <enumeration value="_bahrainArabic"/>
+            <enumeration value="_barbadosEnglish"/>
+            <enumeration value="_belarusByelorussian"/>
+            <enumeration value="_belgiumDutch"/>
+            <enumeration value="_belgiumFrench"/>
+            <enumeration value="_belizeEnglish"/>
+            <enumeration value="_bengali"/>
+            <enumeration value="_beninFrench"/>
+            <enumeration value="_bermudaEnglish"/>
+            <enumeration value="_bhutanDzongkha"/>
+            <enumeration value="_boliviaSpanish"/>
+            <enumeration value="_bonaireSaintEustatiusAndSabaDutch"/>
+            <enumeration value="_bosniaAndHerzegovinaBosnian"/>
+            <enumeration value="_botswanaEnglish"/>
+            <enumeration value="_brazilPortuguese"/>
+            <enumeration value="_bruneiMalay"/>
+            <enumeration value="_bulgariaBulgarian"/>
+            <enumeration value="_burkinaFasoFrench"/>
+            <enumeration value="_burundiFrench"/>
+            <enumeration value="_cambodiaKhmer"/>
+            <enumeration value="_cameroonFrench"/>
+            <enumeration value="_canadaEnglish"/>
+            <enumeration value="_canadaFrench"/>
+            <enumeration value="_canaryIslandsSpanish"/>
+            <enumeration value="_capeVerdePortuguese"/>
+            <enumeration value="_caymanIslandsEnglish"/>
+            <enumeration value="_centralAfricanRepublicFrench"/>
+            <enumeration value="_ceutaAndMelillaSpanish"/>
+            <enumeration value="_chadFrench"/>
+            <enumeration value="_chileSpanish"/>
+            <enumeration value="_chinaChinese"/>
+            <enumeration value="_colombiaSpanish"/>
+            <enumeration value="_comorosFrench"/>
+            <enumeration value="_congoDemocraticRepublicEnglish"/>
+            <enumeration value="_congoDemocraticRepublicFrench"/>
+            <enumeration value="_congoRepublicOfFrench"/>
+            <enumeration value="_costaRicaSpanish"/>
+            <enumeration value="_coteDivoireFrench"/>
+            <enumeration value="_croatiaCroatian"/>
+            <enumeration value="_cubaSpanish"/>
+            <enumeration value="_curacaoDutch"/>
+            <enumeration value="_cyprusEnglish"/>
+            <enumeration value="_cyprusEnglishEuro"/>
+            <enumeration value="_czechRepublicCzech"/>
+            <enumeration value="_denmarkDanish"/>
+            <enumeration value="_djiboutiArabic"/>
+            <enumeration value="_djiboutiFrench"/>
+            <enumeration value="_dominicaEnglish"/>
+            <enumeration value="_dominicanRepublicSpanish"/>
+            <enumeration value="_ecuadorSpanish"/>
+            <enumeration value="_egyptArabic"/>
+            <enumeration value="_elSalvadorSpanish"/>
+            <enumeration value="_equatorialGuineaSpanish"/>
+            <enumeration value="_eritreaAfar"/>
+            <enumeration value="_estoniaEstonian"/>
+            <enumeration value="_ethiopiaAmharic"/>
+            <enumeration value="_falklandIslandsEnglish"/>
+            <enumeration value="_fijiFijian"/>
+            <enumeration value="_finlandFinnish"/>
+            <enumeration value="_finlandFinnishEuro"/>
+            <enumeration value="_franceFrench"/>
+            <enumeration value="_franceFrenchEuro"/>
+            <enumeration value="_frenchPolynesiaFrench"/>
+            <enumeration value="_gabonFrench"/>
+            <enumeration value="_gambiaEnglish"/>
+            <enumeration value="_georgiaGeorgian"/>
+            <enumeration value="_germanyGerman"/>
+            <enumeration value="_germanyGermanEuro"/>
+            <enumeration value="_ghanaEnglish"/>
+            <enumeration value="_gibraltarEnglish"/>
+            <enumeration value="_goldOunce"/>
+            <enumeration value="_greeceGreek"/>
+            <enumeration value="_grenadaEnglish"/>
+            <enumeration value="_guatemalaSpanish"/>
+            <enumeration value="_guineaBissauPortuguese"/>
+            <enumeration value="_guineaFrench"/>
+            <enumeration value="_guyanaEnglish"/>
+            <enumeration value="_haitian"/>
+            <enumeration value="_hondurasSpanish"/>
+            <enumeration value="_hongKongChinese"/>
+            <enumeration value="_hungaryHungarian"/>
+            <enumeration value="_icelandIcelandic"/>
+            <enumeration value="_indiaEnglish"/>
+            <enumeration value="_indiaGujarati"/>
+            <enumeration value="_indiaHindi"/>
+            <enumeration value="_indiaKannada"/>
+            <enumeration value="_indiaMarathi"/>
+            <enumeration value="_indiaPanjabi"/>
+            <enumeration value="_indiaTamil"/>
+            <enumeration value="_indiaTelugu"/>
+            <enumeration value="_indonesiaIndonesian"/>
+            <enumeration value="_iranPersian"/>
+            <enumeration value="_iraqArabic"/>
+            <enumeration value="_irelandEnglish"/>
+            <enumeration value="_israelHebrew"/>
+            <enumeration value="_italyItalian"/>
+            <enumeration value="_italyItalianEuro"/>
+            <enumeration value="_jamaicaEnglish"/>
+            <enumeration value="_japanJapanese"/>
+            <enumeration value="_jordanArabic"/>
+            <enumeration value="_jordanEnglish"/>
+            <enumeration value="_kazakhstanRussian"/>
+            <enumeration value="_kenyaEnglish"/>
+            <enumeration value="_kuwaitArabic"/>
+            <enumeration value="_kuwaitEnglish"/>
+            <enumeration value="_kyrgyzstanRussian"/>
+            <enumeration value="_laosLao"/>
+            <enumeration value="_latviaLatvianLettish"/>
+            <enumeration value="_lebanonArabic"/>
+            <enumeration value="_lesothoEnglish"/>
+            <enumeration value="_liberiaEnglish"/>
+            <enumeration value="_libyaArabic"/>
+            <enumeration value="_lithuaniaLithuanian"/>
+            <enumeration value="_luxembourgFrench"/>
+            <enumeration value="_luxembourgGerman"/>
+            <enumeration value="_luxembourgLuxembourgish"/>
+            <enumeration value="_macauChinese"/>
+            <enumeration value="_macedoniaMacedonian"/>
+            <enumeration value="_malawiEnglish"/>
+            <enumeration value="_malaysiaMalay"/>
+            <enumeration value="_maldivesDhivehi"/>
+            <enumeration value="_maliFrench"/>
+            <enumeration value="_mauritiusEnglish"/>
+            <enumeration value="_mexicoSpanish"/>
+            <enumeration value="_moldovaRomanian"/>
+            <enumeration value="_moldovaRussian"/>
+            <enumeration value="_mongoliaMongolian"/>
+            <enumeration value="_moroccoArabic"/>
+            <enumeration value="_mozambiquePortuguese"/>
+            <enumeration value="_myanmarBurmese"/>
+            <enumeration value="_namibiaEnglish"/>
+            <enumeration value="_nepalNepali"/>
+            <enumeration value="_netherlandsAntillesDutch"/>
+            <enumeration value="_netherlandsDutch"/>
+            <enumeration value="_netherlandsDutchEuro"/>
+            <enumeration value="_newCaledoniaFrench"/>
+            <enumeration value="_newZealandEnglish"/>
+            <enumeration value="_nicaraguaSpanish"/>
+            <enumeration value="_nigerFrench"/>
+            <enumeration value="_nigeriaEnglish"/>
+            <enumeration value="_northKoreaKorean"/>
+            <enumeration value="_norwayNorwegian"/>
+            <enumeration value="_omanArabic"/>
+            <enumeration value="_pakistanUrdu"/>
+            <enumeration value="_palladiumOunce"/>
+            <enumeration value="_panamaSpanish"/>
+            <enumeration value="_papuaNewGuineaEnglish"/>
+            <enumeration value="_paraguaySpanish"/>
+            <enumeration value="_peruSpanish"/>
+            <enumeration value="_philippinesEnglish"/>
+            <enumeration value="_philippinesTagalog"/>
+            <enumeration value="_platinumOunce"/>
+            <enumeration value="_polandPolish"/>
+            <enumeration value="_portugalPortuguese"/>
+            <enumeration value="_portugalPortugueseEuro"/>
+            <enumeration value="_puertoRicoSpanish"/>
+            <enumeration value="_qatarArabic"/>
+            <enumeration value="_qatarEnglish"/>
+            <enumeration value="_romaniaRomanian"/>
+            <enumeration value="_russiaRussian"/>
+            <enumeration value="_rwandaFrench"/>
+            <enumeration value="_saintBarthelemyFrench"/>
+            <enumeration value="_saintHelenaEnglish"/>
+            <enumeration value="_saintKittsAndNevisEnglish"/>
+            <enumeration value="_saintLuciaEnglish"/>
+            <enumeration value="_saintMartinEnglish"/>
+            <enumeration value="_saintVincentAndTheGrenadinesEnglish"/>
+            <enumeration value="_samoaSamoan"/>
+            <enumeration value="_saoTomeAndPrincipePortuguese"/>
+            <enumeration value="_saudiArabiaArabic"/>
+            <enumeration value="_senegalFrench"/>
+            <enumeration value="_serbiaAndMontenegroSerbian"/>
+            <enumeration value="_serbiaSerbian"/>
+            <enumeration value="_serbiaSerboCroatian"/>
+            <enumeration value="_seychellesEnglish"/>
+            <enumeration value="_seychellesFrench"/>
+            <enumeration value="_sierraLeoneEnglish"/>
+            <enumeration value="_silverOunce"/>
+            <enumeration value="_singaporeEnglish"/>
+            <enumeration value="_sintMaartenDutch"/>
+            <enumeration value="_slovakiaSlovak"/>
+            <enumeration value="_slovakiaSlovakEuro"/>
+            <enumeration value="_sloveniaSlovenian"/>
+            <enumeration value="_sloveniaSlovenianEuro"/>
+            <enumeration value="_solomonIslandsEnglish"/>
+            <enumeration value="_somaliaSomali"/>
+            <enumeration value="_southAfricaAfrikaans"/>
+            <enumeration value="_southAfricaEnglish"/>
+            <enumeration value="_southKoreaKorean"/>
+            <enumeration value="_southSudanEnglish"/>
+            <enumeration value="_spainCatalan"/>
+            <enumeration value="_spainSpanish"/>
+            <enumeration value="_spainSpanishEuro"/>
+            <enumeration value="_sriLankaSinhalese"/>
+            <enumeration value="_sudanArabic"/>
+            <enumeration value="_surinameDutch"/>
+            <enumeration value="_swazilandSwati"/>
+            <enumeration value="_swedenSwedish"/>
+            <enumeration value="_switzerlandFrench"/>
+            <enumeration value="_switzerlandGerman"/>
+            <enumeration value="_switzerlandItalian"/>
+            <enumeration value="_syriaArabic"/>
+            <enumeration value="_taiwanChinese"/>
+            <enumeration value="_tajikistanTajik"/>
+            <enumeration value="_tanzaniaEnglish"/>
+            <enumeration value="_thailandThai"/>
+            <enumeration value="_togoFrench"/>
+            <enumeration value="_tongaTonga"/>
+            <enumeration value="_trinidadAndTobagoEnglish"/>
+            <enumeration value="_tunisiaArabic"/>
+            <enumeration value="_turkeyTurkish"/>
+            <enumeration value="_turkmenistanTurkmen"/>
+            <enumeration value="_turksAndCaicosIslandsEnglish"/>
+            <enumeration value="_ugandaEnglish"/>
+            <enumeration value="_ukraineUkrainian"/>
+            <enumeration value="_unitedArabEmiratesArabic"/>
+            <enumeration value="_unitedArabEmiratesEnglish"/>
+            <enumeration value="_unitedKingdomEnglish"/>
+            <enumeration value="_unitedStatesEnglish"/>
+            <enumeration value="_uruguaySpanish"/>
+            <enumeration value="_uzbekistanUzbek"/>
+            <enumeration value="_vanuatuEnglish"/>
+            <enumeration value="_vanuatuFrench"/>
+            <enumeration value="_venezuelaSpanish"/>
+            <enumeration value="_vietnamVietnamese"/>
+            <enumeration value="_wallisAndFutunaFrench"/>
+            <enumeration value="_yemenArabic"/>
+            <enumeration value="_zambiaEnglish"/>
+        </restriction>
+    </simpleType>
+    <!-- currency constants/end -->
+    <!-- expenseCategory constants/start -->
+    <!-- expenseCategory constants/end -->
+    <!-- AccountType constants/start -->
+    <simpleType name="AccountType">
+        <restriction base="xsd:string">
+            <enumeration value="_accountsPayable"/>
+            <enumeration value="_accountsReceivable"/>
+            <enumeration value="_bank"/>
+            <enumeration value="_costOfGoodsSold"/>
+            <enumeration value="_creditCard"/>
+            <enumeration value="_deferredExpense"/>
+            <enumeration value="_deferredRevenue"/>
+            <enumeration value="_equity"/>
+            <enumeration value="_expense"/>
+            <enumeration value="_fixedAsset"/>
+            <enumeration value="_income"/>
+            <enumeration value="_longTermLiability"/>
+            <enumeration value="_nonPosting"/>
+            <enumeration value="_otherAsset"/>
+            <enumeration value="_otherCurrentAsset"/>
+            <enumeration value="_otherCurrentLiability"/>
+            <enumeration value="_otherExpense"/>
+            <enumeration value="_otherIncome"/>
+            <enumeration value="_statistical"/>
+            <enumeration value="_unbilledReceivable"/>
+        </restriction>
+    </simpleType>
+    <!-- AccountType constants/end -->
+    <!-- department constants/start -->
+    <!-- department constants/end -->
+    <!-- classification constants/start -->
+    <!-- classification constants/end -->
+    <!-- location constants/start -->
+    <!-- location constants/end -->
+    <!-- unitsType constants/start -->
+    <!-- unitsType constants/end -->
+    <!-- ItemCostingMethod constants/start -->
+    <simpleType name="ItemCostingMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_average"/>
+            <enumeration value="_fifo"/>
+            <enumeration value="_lifo"/>
+            <enumeration value="_lotNumbered"/>
+            <enumeration value="_serialized"/>
+            <enumeration value="_standard"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemCostingMethod constants/end -->
+    <!-- ItemProductFeed constants/start -->
+    <simpleType name="ItemProductFeed">
+        <restriction base="xsd:string">
+            <enumeration value="_googleBase"/>
+            <enumeration value="_nexTag"/>
+            <enumeration value="_shoppingCom"/>
+            <enumeration value="_shopzilla"/>
+            <enumeration value="_yahooShopping"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemProductFeed constants/end -->
+    <!-- ItemType constants/start -->
+    <simpleType name="ItemType">
+        <restriction base="xsd:string">
+            <enumeration value="_assembly"/>
+            <enumeration value="_description"/>
+            <enumeration value="_discount"/>
+            <enumeration value="_downloadItem"/>
+            <enumeration value="_giftCertificateItem"/>
+            <enumeration value="_inventoryItem"/>
+            <enumeration value="_itemGroup"/>
+            <enumeration value="_kit"/>
+            <enumeration value="_markup"/>
+            <enumeration value="_nonInventoryItem"/>
+            <enumeration value="_otherCharge"/>
+            <enumeration value="_payment"/>
+            <enumeration value="_service"/>
+            <enumeration value="_subtotal"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemType constants/end -->
+    <!-- ItemWeightUnit constants/start -->
+    <simpleType name="ItemWeightUnit">
+        <restriction base="xsd:string">
+            <enumeration value="_g"/>
+            <enumeration value="_kg"/>
+            <enumeration value="_lb"/>
+            <enumeration value="_oz"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemWeightUnit constants/end -->
+    <!-- ItemPreferenceCriterion constants/start -->
+    <simpleType name="ItemPreferenceCriterion">
+        <restriction base="xsd:string">
+            <enumeration value="_A"/>
+            <enumeration value="_B"/>
+            <enumeration value="_C"/>
+            <enumeration value="_D"/>
+            <enumeration value="_E"/>
+            <enumeration value="_F"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemPreferenceCriterion constants/end -->
+    <!-- ItemOverallQuantityPricingType constants/start -->
+    <simpleType name="ItemOverallQuantityPricingType">
+        <restriction base="xsd:string">
+            <enumeration value="_byLineQuantity"/>
+            <enumeration value="_byOverallItemQuantity"/>
+            <enumeration value="_byOverallParentQuantity"/>
+            <enumeration value="_byOverallScheduleQuantity"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemOverallQuantityPricingType constants/end -->
+    <!-- ScheduleBCode constants/start -->
+    <simpleType name="ScheduleBCode">
+        <restriction base="xsd:string">
+            <enumeration value="_1000"/>
+            <enumeration value="_1000cubicMeters"/>
+            <enumeration value="_barrels"/>
+            <enumeration value="_carat"/>
+            <enumeration value="_cleanYieldKilogram"/>
+            <enumeration value="_contentKilogram"/>
+            <enumeration value="_contentTon"/>
+            <enumeration value="_cubicMeters"/>
+            <enumeration value="_curie"/>
+            <enumeration value="_dozen"/>
+            <enumeration value="_dozenPairs"/>
+            <enumeration value="_dozenPieces"/>
+            <enumeration value="_fiberMeter"/>
+            <enumeration value="_gram"/>
+            <enumeration value="_gross"/>
+            <enumeration value="_grossContainers"/>
+            <enumeration value="_hundred"/>
+            <enumeration value="_kilogram"/>
+            <enumeration value="_kilogramTotalSugars"/>
+            <enumeration value="_liter"/>
+            <enumeration value="_meter"/>
+            <enumeration value="_millicurie"/>
+            <enumeration value="_noQuantityReq"/>
+            <enumeration value="_number"/>
+            <enumeration value="_pack"/>
+            <enumeration value="_pairs"/>
+            <enumeration value="_pieces"/>
+            <enumeration value="_proofLiter"/>
+            <enumeration value="_runningBales"/>
+            <enumeration value="_square"/>
+            <enumeration value="_squareCentimeters"/>
+            <enumeration value="_squareMeters"/>
+            <enumeration value="_ton"/>
+        </restriction>
+    </simpleType>
+    <!-- ScheduleBCode constants/end -->
+    <!-- ItemSubType constants/start -->
+    <simpleType name="ItemSubType">
+        <restriction base="xsd:string">
+            <enumeration value="_forPurchase"/>
+            <enumeration value="_forResale"/>
+            <enumeration value="_forSale"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemSubType constants/end -->
+    <!-- CurrencyCurrencyPrecision/start -->
+    <simpleType name="CurrencyCurrencyPrecision">
+        <restriction base="xsd:string">
+            <enumeration value="_one"/>
+            <enumeration value="_two"/>
+            <enumeration value="_zero"/>
+        </restriction>
+    </simpleType>
+    <!-- CurrencyCurrencyPrecision/end -->
+    <!-- CurrencyFxRateUpdateTimezone/start -->
+    <simpleType name="CurrencyFxRateUpdateTimezone">
+        <restriction base="xsd:string">
+            <enumeration value="_americaNewYork"/>
+            <enumeration value="_asiaMagadan"/>
+            <enumeration value="_asiaTokyo"/>
+            <enumeration value="_europeParis"/>
+        </restriction>
+    </simpleType>
+    <!-- CurrencyFxRateUpdateTimezone	/end -->
+    <!-- SalesTaxItemAvailable constants/start -->
+    <simpleType name="SalesTaxItemAvailable">
+        <restriction base="xsd:string">
+            <enumeration value="_both"/>
+            <enumeration value="_purchase"/>
+            <enumeration value="_sale"/>
+        </restriction>
+    </simpleType>
+    <!-- SalesTaxItemAvailable constants/end -->
+    <!-- ItemEbayAuctionDuration/start -->
+    <simpleType name="ItemEbayAuctionDuration">
+        <restriction base="xsd:string">
+            <enumeration value="_10days"/>
+            <enumeration value="_120days"/>
+            <enumeration value="_1day"/>
+            <enumeration value="_30days"/>
+            <enumeration value="_3days"/>
+            <enumeration value="_5days"/>
+            <enumeration value="_60days"/>
+            <enumeration value="_7days"/>
+            <enumeration value="_90days"/>
+            <enumeration value="_goodUntilCancelled"/>
+        </restriction>
+    </simpleType>
+    <!-- ItemEbayAuctionDuration/end -->
+    <simpleType name="ItemOutOfStockBehavior">
+        <restriction base="xsd:string">
+            <enumeration value="_allowBackOrdersButDisplayOutOfStockMessage"/>
+            <enumeration value="_allowBackOrdersWithNoOutOfStockMessage"/>
+            <enumeration value="_default"/>
+            <enumeration value="_disallowBackOrdersButDisplayOutOfStockMessage"/>
+            <enumeration value="_removeItemWhenOutOfStock"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemEbayRelistingOption">
+        <restriction base="xsd:string">
+            <enumeration value="_doNotRelist"/>
+            <enumeration value="_relistWhenItemExpires"/>
+            <enumeration value="_relistWhenItemIsSold"/>
+            <enumeration value="_relistWhenItemIsSoldExpires"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ConsolidatedRate">
+        <restriction base="xsd:string">
+            <enumeration value="_average"/>
+            <enumeration value="_current"/>
+            <enumeration value="_historical"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CashFlowRateType">
+        <restriction base="xsd:string">
+            <enumeration value="_average"/>
+            <enumeration value="_current"/>
+            <enumeration value="_historical"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="GeneralRateType">
+        <restriction base="xsd:string">
+            <enumeration value="_average"/>
+            <enumeration value="_current"/>
+            <enumeration value="_historical"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemMatrixType">
+        <restriction base="xsd:string">
+            <enumeration value="_parent"/>
+            <enumeration value="_child"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemDemandSource">
+        <restriction base="xsd:string">
+            <enumeration value="_enteredAndPlannedOrders"/>
+            <enumeration value="_forecastAndOrders"/>
+            <enumeration value="_forecastConsumption"/>
+            <enumeration value="_forecastFromDemandPlan"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemSupplyLotSizingMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_fixedLotSize"/>
+            <enumeration value="_lotForLot"/>
+            <enumeration value="_periodsOfSupply"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemSupplyType">
+        <restriction base="xsd:string">
+            <enumeration value="_build"/>
+            <enumeration value="_purchase"/>
+            <enumeration value="_transfer"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemSupplyReplenishmentMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_reorderPoint"/>
+            <enumeration value="_timePhased"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="RevRecScheduleRecogIntervalSrc">
+        <restriction base="xsd:string">
+            <enumeration value="_revRecDatesSpecifiedOnTransaction"/>
+            <enumeration value="_billingScheduleTranDateOnSalesOrder"/>
+            <enumeration value="_billingScheduleRevRecDateOnSalesOrder"/>
+            <enumeration value="_revRecDatesSpecifiedOnSalesOrder"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="RevRecScheduleRecurrenceType">
+        <restriction base="xsd:string">
+            <enumeration value="_custom"/>
+            <enumeration value="_straightLineByEvenPeriods"/>
+            <enumeration value="_straightLineProrateFirstAndLastPeriod"/>
+            <enumeration value="_straightLineProrateFirstAndLastPeriodPeriodRate"/>
+            <enumeration value="_straightLineUsingExactDays"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="RevRecScheduleAmortizationType">
+        <restriction base="xsd:string">
+            <enumeration value="_standard"/>
+            <enumeration value="_variable"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="RevRecScheduleAmortizationStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_notStarted"/>
+            <enumeration value="_inProgress"/>
+            <enumeration value="_completed"/>
+            <enumeration value="_onHold"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CostCategoryItemCostType">
+        <restriction base="xsd:string">
+            <enumeration value="_laborRun"/>
+            <enumeration value="_laborRunOverhead"/>
+            <enumeration value="_laborSetup"/>
+            <enumeration value="_laborSetupOverhead"/>
+            <enumeration value="_landed"/>
+            <enumeration value="_machineRun"/>
+            <enumeration value="_machineRunOverhead"/>
+            <enumeration value="_machineSetup"/>
+            <enumeration value="_machineSetupOverhead"/>
+            <enumeration value="_material"/>
+            <enumeration value="_materialOverhead"/>
+            <enumeration value="_service"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemAtpMethod">
+        <restriction base="xsd:string">
+            <enumeration value="_cumulativeAtpWithLookAhead"/>
+            <enumeration value="_discreteAtp"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="AssemblyItemEffectiveBomControl">
+        <restriction base="xsd:string">
+            <enumeration value="_effectiveDate"/>
+            <enumeration value="_revisionControl"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemInvtClassification">
+        <restriction base="xsd:string">
+            <enumeration value="_a"/>
+            <enumeration value="_b"/>
+            <enumeration value="_c"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="PeriodicLotSizeType">
+        <restriction base="xsd:string">
+            <enumeration value="_interval"/>
+            <enumeration value="_monthly"/>
+            <enumeration value="_weekly"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="HazmatPackingGroup">
+        <restriction base="xsd:string">
+            <enumeration value="_i"/>
+            <enumeration value="_ii"/>
+            <enumeration value="_iii"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemCarrier">
+        <restriction base="xsd:string">
+            <enumeration value="_fedexUspsMore"/>
+            <enumeration value="_ups"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TaxAcctType">
+        <restriction base="xsd:string">
+            <enumeration value="_sale"/>
+            <enumeration value="_purchase"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemOverheadType">
+        <restriction base="xsd:string">
+            <enumeration value="_amountBaseUnit"/>
+            <enumeration value="_percentOfMaterial"/>
+            <enumeration value="_percentOfTotal"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemCostAccountingStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_complete"/>
+            <enumeration value="_failed"/>
+            <enumeration value="_pending"/>
+            <enumeration value="_processing"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleRecurrenceRecurrenceUnits">
+        <restriction base="xsd:string">
+            <enumeration value="_custom"/>
+            <enumeration value="_days"/>
+            <enumeration value="_months"/>
+            <enumeration value="_weeks"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleType">
+        <restriction base="xsd:string">
+            <enumeration value="_chargeBased"/>
+            <enumeration value="_fixedBidInterval"/>
+            <enumeration value="_fixedBidMilestone"/>
+            <enumeration value="_standard"/>
+            <enumeration value="_timeAndMaterials"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleFrequency">
+        <restriction base="xsd:string">
+            <enumeration value="_annually"/>
+            <enumeration value="_custom"/>
+            <enumeration value="_daily"/>
+            <enumeration value="_endOfPeriod"/>
+            <enumeration value="_monthly"/>
+            <enumeration value="_never"/>
+            <enumeration value="_oneTime"/>
+            <enumeration value="_startOfPeriod"/>
+            <enumeration value="_weekly"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ItemAccountMappingItemAccount">
+        <restriction base="xsd:string">
+            <enumeration value="_asset"/>
+            <enumeration value="_costOfGoods"/>
+            <enumeration value="_customerReturnVariance"/>
+            <enumeration value="_deferral"/>
+            <enumeration value="_deferredRevenue"/>
+            <enumeration value="_discount"/>
+            <enumeration value="_dropShipExpense"/>
+            <enumeration value="_exchangeRateVariance"/>
+            <enumeration value="_expense"/>
+            <enumeration value="_gainLoss"/>
+            <enumeration value="_income"/>
+            <enumeration value="_liability"/>
+            <enumeration value="_markup"/>
+            <enumeration value="_payment"/>
+            <enumeration value="_priceVariance"/>
+            <enumeration value="_productionPriceVariance"/>
+            <enumeration value="_productionQuantityVariance"/>
+            <enumeration value="_purchasePriceVariance"/>
+            <enumeration value="_quantityVariance"/>
+            <enumeration value="_scrap"/>
+            <enumeration value="_unbuildVariance"/>
+            <enumeration value="_vendorReturnVariance"/>
+            <enumeration value="_wipVariance"/>
+            <enumeration value="_workInProcess"/>
+            <enumeration value="_writeOff"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="AccountingBookStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_active"/>
+            <enumeration value="_inactive"/>
+            <enumeration value="_pending"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleRepeatEvery">
+        <restriction base="xsd:string">
+            <enumeration value="_1"/>
+            <enumeration value="_2"/>
+            <enumeration value="_3"/>
+            <enumeration value="_4"/>
+            <enumeration value="_6"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleMonthDow">
+        <restriction base="xsd:string">
+            <enumeration value="_sunday"/>
+            <enumeration value="_monday"/>
+            <enumeration value="_tuesday"/>
+            <enumeration value="_wednesday"/>
+            <enumeration value="_thursday"/>
+            <enumeration value="_friday"/>
+            <enumeration value="_saturday"/>
+            <enumeration value="_day"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleYearMonth">
+        <restriction base="xsd:string">
+            <enumeration value="_january"/>
+            <enumeration value="_february"/>
+            <enumeration value="_march"/>
+            <enumeration value="_april"/>
+            <enumeration value="_may"/>
+            <enumeration value="_june"/>
+            <enumeration value="_july"/>
+            <enumeration value="_august"/>
+            <enumeration value="_september"/>
+            <enumeration value="_october"/>
+            <enumeration value="_november"/>
+            <enumeration value="_december"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleYearDow">
+        <restriction base="xsd:string">
+            <enumeration value="_sunday"/>
+            <enumeration value="_monday"/>
+            <enumeration value="_tuesday"/>
+            <enumeration value="_wednesday"/>
+            <enumeration value="_thursday"/>
+            <enumeration value="_friday"/>
+            <enumeration value="_saturday"/>
+            <enumeration value="_day"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleYearDowim">
+        <restriction base="xsd:string">
+            <enumeration value="_first"/>
+            <enumeration value="_second"/>
+            <enumeration value="_third"/>
+            <enumeration value="_fourth"/>
+            <enumeration value="_last"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleYearDowimMonth">
+        <restriction base="xsd:string">
+            <enumeration value="_january"/>
+            <enumeration value="_february"/>
+            <enumeration value="_march"/>
+            <enumeration value="_april"/>
+            <enumeration value="_may"/>
+            <enumeration value="_june"/>
+            <enumeration value="_july"/>
+            <enumeration value="_august"/>
+            <enumeration value="_september"/>
+            <enumeration value="_october"/>
+            <enumeration value="_november"/>
+            <enumeration value="_december"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleMonthDowim">
+        <restriction base="xsd:string">
+            <enumeration value="_first"/>
+            <enumeration value="_second"/>
+            <enumeration value="_third"/>
+            <enumeration value="_fourth"/>
+            <enumeration value="_last"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="BillingScheduleRecurrenceMode">
+        <restriction base="xsd:string">
+            <enumeration value="_dom"/>
+            <enumeration value="_dowim"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="InventoryItemFraudRisk">
+        <restriction base="xsd:string">
+            <enumeration value="_high"/>
+            <enumeration value="_low"/>
+            <enumeration value="_medium"/>
+        </restriction>
+    </simpleType>
+</xsd:schema>

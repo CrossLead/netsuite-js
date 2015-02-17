@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:docFileCabTyp="urn:types.filecabinet_2014_2.documents.webservices.netsuite.com" targetNamespace="urn:types.filecabinet_2014_2.documents.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- file constants/start -->
+    <simpleType name="MediaType">
+        <restriction base="xsd:string">
+            <enumeration value="_AUTOCAD"/>
+            <enumeration value="_BMPIMAGE"/>
+            <enumeration value="_CONFIG"/>
+            <enumeration value="_CSV"/>
+            <enumeration value="_EXCEL"/>
+            <enumeration value="_FLASH"/>
+            <enumeration value="_FREEMARKER"/>
+            <enumeration value="_GIFIMAGE"/>
+            <enumeration value="_GZIP"/>
+            <enumeration value="_HTMLDOC"/>
+            <enumeration value="_ICON"/>
+            <enumeration value="_IMAGE"/>
+            <enumeration value="_JAVASCRIPT"/>
+            <enumeration value="_JPGIMAGE"/>
+            <enumeration value="_JSON"/>
+            <enumeration value="_MESSAGERFC"/>
+            <enumeration value="_MISCBINARY"/>
+            <enumeration value="_MISCTEXT"/>
+            <enumeration value="_MP3"/>
+            <enumeration value="_MPEGMOVIE"/>
+            <enumeration value="_MSPROJECT"/>
+            <enumeration value="_PDF"/>
+            <enumeration value="_PJPGIMAGE"/>
+            <enumeration value="_PLAINTEXT"/>
+            <enumeration value="_PNGIMAGE"/>
+            <enumeration value="_POSTSCRIPT"/>
+            <enumeration value="_POWERPOINT"/>
+            <enumeration value="_QUICKTIME"/>
+            <enumeration value="_RTF"/>
+            <enumeration value="_SMS"/>
+            <enumeration value="_STYLESHEET"/>
+            <enumeration value="_TAR"/>
+            <enumeration value="_TARCOMP"/>
+            <enumeration value="_TIFFIMAGE"/>
+            <enumeration value="_VISIO"/>
+            <enumeration value="_WEBAPPPAGE"/>
+            <enumeration value="_WEBAPPSCRIPT"/>
+            <enumeration value="_WORD"/>
+            <enumeration value="_XMLDOC"/>
+            <enumeration value="_XSD"/>
+            <enumeration value="_ZIP"/>
+        </restriction>
+    </simpleType>
+    <!-- file constants/end -->
+    <!-- FileAttachFrom/start -->
+    <simpleType name="FileAttachFrom">
+        <restriction base="xsd:string">
+            <enumeration value="_computer"/>
+            <enumeration value="_web"/>
+        </restriction>
+    </simpleType>
+    <!-- FileAttachFrom/end -->
+    <simpleType name="FileEncoding">
+        <restriction base="xsd:string">
+            <enumeration value="_autoDetect"/>
+            <enumeration value="_shiftJis"/>
+            <enumeration value="_utf8"/>
+            <enumeration value="_windows1252"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="TextFileEncoding">
+        <restriction base="xsd:string">
+            <enumeration value="_big5"/>
+            <enumeration value="_gb2312"/>
+            <enumeration value="_gb18030"/>
+            <enumeration value="_iso88591"/>
+            <enumeration value="_macRoman"/>
+            <enumeration value="_shiftJis"/>
+            <enumeration value="_utf8"/>
+            <enumeration value="_windows1252"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="FolderFolderType">
+        <restriction base="xsd:string">
+            <enumeration value="_appPackages"/>
+            <enumeration value="_attachmentsReceived"/>
+            <enumeration value="_attachmentsToSend"/>
+            <enumeration value="_certificates"/>
+            <enumeration value="_documentsAndFiles"/>
+            <enumeration value="_emailTemplates"/>
+            <enumeration value="_faxTemplates"/>
+            <enumeration value="_images"/>
+            <enumeration value="_letterTemplates"/>
+            <enumeration value="_mailMerge"/>
+            <enumeration value="_marketingTemplates"/>
+            <enumeration value="_pdfTemplates"/>
+            <enumeration value="_suitebundles"/>
+            <enumeration value="_suitecommerceAdvancedSiteTemplates"/>
+            <enumeration value="_suitescripts"/>
+            <enumeration value="_templates"/>
+            <enumeration value="_webSiteHostingFiles"/>
+        </restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listSupportTyp="urn:types.support_2014_2.lists.webservices.netsuite.com" targetNamespace="urn:types.support_2014_2.lists.webservices.netsuite.com" elementFormDefault="qualified">
+    <!-- supportCaseType constants/start -->
+    <!-- supportCaseType constants/end -->
+    <!-- supportCaseOrigin constants/start -->
+    <!-- supportCaseOrigin constants/end -->
+    <!-- supportCaseIssue constants/start -->
+    <!-- supportCaseIssue constants/end -->
+    <!-- supportCasePriority constants/start -->
+    <!-- supportCasePriority constants/end -->
+    <!-- SupportCaseStatusStage/start -->
+    <simpleType name="SupportCaseStatusStage">
+        <restriction base="xsd:string">
+            <enumeration value="_closed"/>
+            <enumeration value="_escalated"/>
+            <enumeration value="_open"/>
+        </restriction>
+    </simpleType>
+    <!-- SupportCaseStatusStage/end -->
+    <!-- SupportCaseStage/start -->
+    <simpleType name="SupportCaseStage">
+        <restriction base="xsd:string">
+            <enumeration value="_closed"/>
+            <enumeration value="_escalated"/>
+            <enumeration value="_open"/>
+        </restriction>
+    </simpleType>
+    <!-- SupportCaseStage/end -->
+    <!-- SolutionStatus/start -->
+    <simpleType name="SolutionStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_approved"/>
+            <enumeration value="_unapproved"/>
+        </restriction>
+    </simpleType>
+    <!-- SolutionStatus/end -->
+    <!-- IssueEventStatus/start -->
+    <simpleType name="IssueEventStatus">
+        <restriction base="xsd:string">
+            <enumeration value="_closed"/>
+            <enumeration value="_onHold"/>
+            <enumeration value="_open"/>
+            <enumeration value="_resolved"/>
+        </restriction>
+    </simpleType>
+    <!-- IssueEventStatus/end -->
+    <!-- IssueTrackCode/start -->
+    <simpleType name="IssueTrackCode">
+        <restriction base="xsd:string">
+            <enumeration value="_never"/>
+            <enumeration value="_onAnyChange"/>
+            <enumeration value="_whenBaseStatusIsClosed"/>
+            <enumeration value="_whenBaseStatusIsOnHold"/>
+            <enumeration value="_whenBaseStatusIsOpen"/>
+            <enumeration value="_whenBaseStatusIsResolved"/>
+        </restriction>
+    </simpleType>
+    <!-- IssueTrackCode/end -->
+    <simpleType name="IssueRelationship">
+        <restriction base="xsd:string">
+            <enumeration value="_blocks"/>
+            <enumeration value="_dependsOn"/>
+            <enumeration value="_duplicatedBy"/>
+            <enumeration value="_duplicates"/>
+            <enumeration value="_followedUpBy"/>
+            <enumeration value="_followUpFor"/>
+            <enumeration value="_injectedBy"/>
+            <enumeration value="_injects"/>
+            <enumeration value="_isBlockedBy"/>
+            <enumeration value="_isRequiredFor"/>
+            <enumeration value="_relatedTo"/>
+        </restriction>
+    </simpleType>
+</xsd:schema>
