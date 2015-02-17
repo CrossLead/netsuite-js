@@ -27,6 +27,22 @@ config
   .then(function(client) {
     console.log('Connected. Service description:');
     console.log(client.describe());
+    console.log('Getting Employee record');
+    client.get({
+      'baseRef': {
+        attributes: {
+          internalId: 5084,
+          type: 'employee',
+          'xsi:type': 'platformCore:RecordRef'
+        }
+      }
+    }, function(err, result, raw, soapHeader) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(result);
+      }
+    });
   });
 ```
 
