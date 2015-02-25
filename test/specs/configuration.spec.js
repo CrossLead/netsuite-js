@@ -61,7 +61,7 @@ describe('NetSuite.Configuration', function() {
     authHeader['platformMsgs:passport']['platformCore:role'].attributes.internalId.should.equal(3);
   });
 
-  // TODO: make this test not connect to the actual NetSuit endpoint
+  // This test approaches time limit since some XSDs are huge (common.xsd is > 0.5MB)
   it('should connect to a (mock) NetSuite wsdl', function(done) {
     var config = new NetSuite.Configuration(credentials);
     config
