@@ -22,27 +22,27 @@ var credentials =  {
   "role": 3
 };
 var config = new NetSuite.Configuration(credentials);
-config
-  .createConnection()
-  .then(function(client) {
-    console.log('Connected. Service description:');
-    console.log(client.describe());
+var service = new NetSuite.Service(config);
+service
+  .init()
+  .then(function(/*client*/) {
+    console.log('WSDL processed. Service description:');
+    console.log(service.config.client.describe());
+
+    var recordRef = new NetSuite.Records.RecordRef();
+    recordRef.internalId = 5084;
+    recordRef.type = 'employee';
+
     console.log('Getting Employee record');
-    client.get({
-      'baseRef': {
-        attributes: {
-          internalId: 5084,
-          type: 'employee',
-          'xsi:type': 'platformCore:RecordRef'
-        }
-      }
-    }, function(err, result, raw, soapHeader) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(result);
-      }
-    });
+    return service.get(recordRef);
+  })
+  .then(function(result, raw, soapHeader) {
+    console.log(result);
+    console.log('Last Request:');
+    console.log(service.config.client.lastRequest);
+  })
+  .catch(function(err) {
+    console.error(err);
   });
 ```
 

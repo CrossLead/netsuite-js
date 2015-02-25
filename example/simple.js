@@ -10,36 +10,30 @@
 
 var denodeify = require('denodeify');
 var NetSuite = require('../');
+
 var credentials = require('./credentials.json');
 var config = new NetSuite.Configuration(credentials);
-var c;
+var service = new NetSuite.Service(config);
 
 console.log('Creating NetSuite connection');
 
-config
-  .createConnection()
-  .then(function(client) {
-    c = client;
+service
+  .init()
+  .then(function(/*client*/) {
     console.log('WSDL processed. Service description:');
-    console.log(client.describe());
+    console.log(service.config.client.describe());
+
+    var recordRef = new NetSuite.Records.RecordRef();
+    recordRef.internalId = 5084;
+    recordRef.type = 'employee';
+
     console.log('Getting Employee record');
-    client.get({
-      'baseRef': {
-        attributes: {
-          internalId: 5084,
-          type: 'employee',
-          'xsi:type': 'platformCore:RecordRef'
-        }
-      }
-    }, function(err, result, raw, soapHeader) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(result);
-      }
-      console.log('Last Request:');
-      console.log(c.lastRequest);
-    });
+    return service.get(recordRef);
+  })
+  .then(function(result, raw, soapHeader) {
+    console.log(result);
+    console.log('Last Request:');
+    console.log(service.config.client.lastRequest);
   })
   .catch(function(err) {
     console.error(err);
