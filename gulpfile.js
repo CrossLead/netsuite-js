@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp   = require('gulp');
+var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
 var paths = {
@@ -18,7 +18,7 @@ if (process.env.CI) {
   };
 }
 
-gulp.task('lint', function () {
+gulp.task('lint', function() {
   return gulp.src(paths.lint)
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.plumber(plumberConf))
@@ -26,11 +26,11 @@ gulp.task('lint', function () {
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('istanbul', function (cb) {
+gulp.task('istanbul', function(cb) {
   gulp.src(paths.source)
     .pipe(plugins.istanbul()) // Covering files
     .pipe(plugins.istanbul.hookRequire()) // Force `require` to return covered files
-    .on('finish', function () {
+    .on('finish', function() {
       gulp.src(paths.tests)
         .pipe(plugins.plumber(plumberConf))
         .pipe(plugins.mocha())
@@ -42,15 +42,26 @@ gulp.task('istanbul', function (cb) {
     });
 });
 
-gulp.task('bump', ['test'], function () {
+gulp.task('docs', function() {
+  gulp.src(paths.source)
+    .pipe(plugins.doxx({
+      title: 'netsuite-js',
+      urlPrefix: '/netsuite-js/docs'
+    }))
+    .pipe(gulp.dest('./docs'));
+});
+
+gulp.task('bump', ['test', 'docs'], function() {
   var bumpType = plugins.util.env.type || 'patch'; // major.minor.patch
 
   return gulp.src(['./package.json'])
-    .pipe(plugins.bump({ type: bumpType }))
+    .pipe(plugins.bump({
+      type: bumpType
+    }))
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('watch', ['test'], function () {
+gulp.task('watch', ['test'], function() {
   gulp.watch(paths.watch, ['test']);
 });
 
