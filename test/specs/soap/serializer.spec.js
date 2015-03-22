@@ -20,13 +20,13 @@ describe('NetSuite.SOAP.Serializer', function() {
     }).should.throw('Unknown object type');
   });
 
-  it('should create an object with `baseRef` property and `attributes` sub-object', function() {
+  it('should create an object with `baseRef` property and `$attributes` sub-object', function() {
     recordRef = new NetSuite.Records.RecordRef;
     recordRef.internalId = internalId;
     recordRef.type = type;
     var soapObj = NetSuite.SOAP.Serializer.serialize(recordRef);
     soapObj.should.have.property('baseRef');
-    soapObj.baseRef.should.have.property('attributes');
-    soapObj.baseRef.attributes.type.should.equal(type);
+    soapObj.baseRef.should.have.property('$attributes');
+    soapObj.baseRef.$attributes.type.should.equal(type);
   });
 });

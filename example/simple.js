@@ -19,7 +19,7 @@ console.log('Creating NetSuite connection');
 
 service
   .init()
-  .then(function(/*client*/) {
+  .then(function( /*client*/ ) {
     console.log('WSDL processed. Service description:');
     console.log(service.config.client.describe());
 
@@ -31,6 +31,10 @@ service
     return service.get(recordRef);
   })
   .then(function(result, raw, soapHeader) {
+    if (result.readResponse.status.$attributes.isSuccess !== 'true') {
+      console.error('Error');
+      console.error(result.readResponse.status.statusDetail);
+    }
     console.log(result);
     console.log('Last Request:');
     console.log(service.config.client.lastRequest);

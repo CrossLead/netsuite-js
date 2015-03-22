@@ -58,7 +58,7 @@ describe('NetSuite.Configuration', function() {
 
 
     var authHeader = NetSuite.Configuration.createAuthHeader(credsWithRole);
-    authHeader['platformMsgs:passport']['platformCore:role'].attributes.internalId.should.equal(3);
+    authHeader['platformMsgs:passport']['platformCore:role'].$attributes.internalId.should.equal(3);
   });
 
   // This test approaches time limit since some XSDs are huge (common.xsd is > 0.5MB)
