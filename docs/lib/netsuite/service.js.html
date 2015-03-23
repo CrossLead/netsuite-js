@@ -88,6 +88,8 @@
               </li>
               <li><a href="#get"><i class="alert alert-info"></i><span>get</span></a>
               </li>
+              <li><a href="#getList"><i class="alert alert-info"></i><span>getList</span></a>
+              </li>
             </ul>
           </div>
         </div>
@@ -126,9 +128,25 @@
               <div class="label label-info radius ctx-type">method</div><span>Service.prototype.init()</span> -><span>Promise.&lt;client&gt;</span>
             </p>
           </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>[skipDiscovery=false]</td>
+                <td>Boolean</td>
+                <td>Don't try to discover WSDL url</td>
+              </tr>
+            </tbody>
+          </table>
           <div class="description"><p>Initialize this service client with given config.</p> </div>
-          <pre><code class="language-javascript">Service.prototype.init = function() {
-  return this.config.createConnection();
+          <pre><code class="language-javascript">Service.prototype.init = function(skipDiscovery) {
+  return this.config.createConnection(skipDiscovery);
 };</code></pre>
           <section id="get">
             <h1>get</h1>
@@ -153,13 +171,44 @@
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Get operation</p> </div>
+          <div class="description"><p>get operation</p> </div>
           <pre><code class="language-javascript">Service.prototype.get = function(recordRef) {
   assertConnection(this);
 
   var soapObj = Serializer.serialize(recordRef);
   var get = denodeify(this.config.client.get);
   return get(soapObj);
+};</code></pre>
+          <section id="getList">
+            <h1>getList</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.getList()</span> -><span>Promise.&lt;result rawResponse soapHeader</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>recordRefs</td>
+                <td>Array.&lt;NetSuite.RecordRef</td>
+                <td>array of RecordRefs</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>getList operation</p> </div>
+          <pre><code class="language-javascript">Service.prototype.getList = function(recordRefs) {
+  assertConnection(this);
+
+  var soapObj = Serializer.serialize(recordRefs);
+  var getList = denodeify(this.config.client.getList);
+  return getList(soapObj);
 };</code></pre>
         </div>
       </div>
