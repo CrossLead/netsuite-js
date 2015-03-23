@@ -37,6 +37,10 @@ service
     return service.get(recordRef);
   })
   .then(function(result, raw, soapHeader) {
+    if (result.readResponse.status.$attributes.isSuccess !== 'true') {
+      console.error('Error');
+      console.error(result.readResponse.status.statusDetail);
+    }
     console.log(result);
     console.log('Last Request:');
     console.log(service.config.client.lastRequest);
