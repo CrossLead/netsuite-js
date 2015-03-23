@@ -166,24 +166,29 @@
             <tbody>
               <tr>
                 <td>recordRef</td>
-                <td>NetSuite.RecordRef</td>
+                <td>NetSuite.Records.RecordRef</td>
                 <td></td>
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>get operation</p> </div>
+          <div class="description"><p><code>result</code> description:</p><p><code>result.readResponse.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.readResponse.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.readResponse.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.readResponse.record</code> {Record} The actual record. Its type is dependent on the given <code>recordRef.type</code></p> </div>
           <pre><code class="language-javascript">Service.prototype.get = function(recordRef) {
   assertConnection(this);
 
   var soapObj = Serializer.serialize(recordRef);
   var get = denodeify(this.config.client.get);
   return get(soapObj);
+};
+
+
+Service.prototype.getAll = function(recordType) {
+
 };</code></pre>
           <section id="getList">
             <h1>getList</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.getList()</span> -><span>Promise.&lt;result rawResponse soapHeader</span>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.getList()</span> -><span>Promise.&lt;result rawResponse soapHeader&gt;</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -197,12 +202,12 @@
             <tbody>
               <tr>
                 <td>recordRefs</td>
-                <td>Array.&lt;NetSuite.RecordRef</td>
+                <td>NetSuite.Records.RecordRef[]</td>
                 <td>array of RecordRefs</td>
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>getList operation</p> </div>
+          <div class="description"><p><code>result</code> description:</p><p><code>result.readResponse.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.readResponse.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.readResponse.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.readResponseList.readResponse</code> {Record[]} The actual records. Their types are dependent on the given <code>recordRef.type</code>s</p> </div>
           <pre><code class="language-javascript">Service.prototype.getList = function(recordRefs) {
   assertConnection(this);
 
