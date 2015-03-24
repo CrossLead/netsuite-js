@@ -88,6 +88,8 @@
               </li>
               <li><a href="#get"><i class="alert alert-info"></i><span>get</span></a>
               </li>
+              <li><a href="#getAll"><i class="alert alert-info"></i><span>getAll</span></a>
+              </li>
               <li><a href="#getList"><i class="alert alert-info"></i><span>getList</span></a>
               </li>
             </ul>
@@ -178,11 +180,41 @@
   var soapObj = Serializer.serialize(recordRef);
   var get = denodeify(this.config.client.get);
   return get(soapObj);
-};
+};</code></pre>
+          <section id="getAll">
+            <h1>getAll</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.getAll()</span> -><span>Promise.&lt;result rawResponse soapHeader&gt;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>recordType</td>
+                <td>String</td>
+                <td>from `GetAllRecordType` enumeration in `coreTypes.xsd`</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Note that not all record types work with the <code>getAll</code> operation. Supported types<br />are listed in the <code>GetAllRecordType</code> enumeration in <code>coreTypes.xsd</code>.</p><p><code>result</code> description:</p><p><code>result.getAllResult.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.getAllResult.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.getAllResult.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.getAllResult.recordList</code> {Record[]} The actual records. Their types are dependent on the given <code>recordRef.type</code>s<br /><code>result.getAllResult.totalRecords</code> {Number}</p> </div>
+          <pre><code class="language-javascript">Service.prototype.getAll = function(recordType) {
+  assertConnection(this);
 
-
-Service.prototype.getAll = function(recordType) {
-
+  var param = {
+    record: {
+      recordType: recordType
+    }
+  };
+  var getAll = denodeify(this.config.client.getAll);
+  return getAll(param);
 };</code></pre>
           <section id="getList">
             <h1>getList</h1>
@@ -207,7 +239,7 @@ Service.prototype.getAll = function(recordType) {
               </tr>
             </tbody>
           </table>
-          <div class="description"><p><code>result</code> description:</p><p><code>result.readResponse.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.readResponse.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.readResponse.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.readResponseList.readResponse</code> {Record[]} The actual records. Their types are dependent on the given <code>recordRef.type</code>s</p> </div>
+          <div class="description"><p><code>result</code> description:</p><p><code>result.readResponseList.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.readResponseList.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.readResponseList.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.readResponseList.readResponse</code> {Record[]} The actual records. Their types are dependent on the given <code>recordRef.type</code>s</p> </div>
           <pre><code class="language-javascript">Service.prototype.getList = function(recordRefs) {
   assertConnection(this);
 
