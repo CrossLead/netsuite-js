@@ -1,7 +1,7 @@
 {
   "name": "netsuite-js",
   "description": "A Node wrapper for the NetSuite SOAP API.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/CrossLead/netsuite-js",
   "bugs": "https://github.com/CrossLead/netsuite-js/issues",
   "license": "Apache",

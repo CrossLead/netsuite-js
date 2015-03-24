@@ -76,8 +76,8 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\configuration.js.html">netsuite\configuration.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
@@ -86,99 +86,81 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#RecordRef"><i class="alert alert-success"></i><span>RecordRef</span></a>
+              <li><a href="#EmployeeSearchBasic"><i class="alert alert-success"></i><span>EmployeeSearchBasic</span></a>
               </li>
-              <li><a href="#internalId"><i class="alert alert-success"></i><span>internalId</span></a>
-              </li>
-              <li><a href="#externalId"><i class="alert alert-success"></i><span>externalId</span></a>
+              <li><a href="#searchField"><i class="alert alert-success"></i><span>searchField</span></a>
               </li>
               <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
               </li>
-              <li><a href="#getUnserializablePropertyNames"><i class="alert alert-info"></i><span>getUnserializablePropertyNames</span></a>
-              </li>
               <li><a href="#getSOAPType"><i class="alert alert-info"></i><span>getSOAPType</span></a>
+              </li>
+              <li><a href="#getXml"><i class="alert alert-info"></i><span>getXml</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="RecordRef">
-            <h1>RecordRef</h1>
+          <section id="EmployeeSearchBasic">
+            <h1>EmployeeSearchBasic</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>RecordRef</span> -><span>RecordRef</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>EmployeeSearchBasic</span> -><span>RecordRef</span>
             </p>
           </section>
-          <div class="description"><p>Basic NetSuite reference</p><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/other/recordref.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/other/recordref.html?mode=package</a></p> </div>
-          <pre><code class="language-javascript">var RecordRef = module.exports = function RecordRef() {
+          <div class="description"><p>EmployeeSearchBasic</p><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/employeesearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/employeesearchbasic.html?mode=package</a></p> </div>
+          <pre><code class="language-javascript">var EmployeeSearchBasic = module.exports = function EmployeeSearchBasic() {
   BaseObject.call(this);</code></pre>
-          <section id="internalId">
-            <h1>internalId</h1>
+          <section id="searchField">
+            <h1>searchField</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">property</div><span>this.internalId</span>
+              <div class="label label-success radius ctx-type">property</div><span>this.searchField</span>
             </p>
           </section>
-          <div class="description"><p>@member {String|Number}</p> </div>
-          <pre><code class="language-javascript">this.internalId = null;</code></pre>
-          <section id="externalId">
-            <h1>externalId</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-success radius ctx-type">property</div><span>this.externalId</span>
-            </p>
-          </section>
-          <div class="description"><p>@member {String|Number}</p> </div>
-          <pre><code class="language-javascript">this.externalId = null;
+          <div class="description"><p>@member {SearchStringField} The search field for this search. Required.</p> </div>
+          <pre><code class="language-javascript">this.searchField = null;
 };
 
-util.inherits(RecordRef, BaseObject);</code></pre>
+util.inherits(EmployeeSearchBasic, BaseObject);</code></pre>
           <section id="getAttributes">
             <h1>getAttributes</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>RecordRef.prototype.getAttributes()</span>
+              <div class="label label-info radius ctx-type">method</div><span>EmployeeSearchBasic.prototype.getAttributes()</span>
             </p>
           </section>
           <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">RecordRef.prototype.getAttributes = function() {
+          <pre><code class="language-javascript">EmployeeSearchBasic.prototype.getAttributes = function() {
   var attrs = {
-    type: this.type,
-    'xsi:type': 'platformCore:RecordRef'
+    'xsi:type': 'platformCommon:EmployeeSearchBasic'
   };
 
-  if (this.internalId) {
-    attrs.internalId = this.internalId;
-  }
-
-  if (this.externalId) {
-    attrs.externalId = this.externalId;
-  }
-
   return attrs;
-};</code></pre>
-          <section id="getUnserializablePropertyNames">
-            <h1>getUnserializablePropertyNames</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">method</div><span>RecordRef.prototype.getUnserializablePropertyNames()</span>
-            </p>
-          </section>
-          <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">RecordRef.prototype.getUnserializablePropertyNames = function() {
-  return ['internalId', 'externalId', 'type'];
 };</code></pre>
           <section id="getSOAPType">
             <h1>getSOAPType</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>RecordRef.prototype.getSOAPType()</span>
+              <div class="label label-info radius ctx-type">method</div><span>EmployeeSearchBasic.prototype.getSOAPType()</span>
             </p>
           </section>
           <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">RecordRef.prototype.getSOAPType = function() {
-  // Always baseRef
-  return 'baseRef';
+          <pre><code class="language-javascript">EmployeeSearchBasic.prototype.getSOAPType = function() {
+  // Always searchRecord
+  return 'searchRecord';
+};</code></pre>
+          <section id="getXml">
+            <h1>getXml</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>EmployeeSearchBasic.prototype.getXml()</span>
+            </p>
+          </section>
+          <div class="description"><p><code>node-soap</code> doesn&#39;t set the child namespace correctly so must override all XML.</p> </div>
+          <pre><code class="language-javascript">EmployeeSearchBasic.prototype.getXml = function() {
+  var xml = '&lt;platformCommon:' + this.searchField.field + ' operator=&quot;' + this.searchField.operator + '&quot; xsi:type=&quot;platformCore:SearchStringField&quot;&gt;&lt;platformCore:searchValue&gt;' + this.searchField.searchValue + '&lt;/platformCore:searchValue&gt;&lt;/platformCommon:' + this.searchField.field + '&gt;';
+
+  return xml;
 };</code></pre>
         </div>
       </div>

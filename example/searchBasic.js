@@ -22,24 +22,27 @@ service
   .then(function( /*client*/ ) {
     console.log('WSDL processed');
 
-    var recordRef = new NetSuite.Records.RecordRef();
-    recordRef.internalId = 5084;
-    recordRef.type = 'employee';
+    var search = new NetSuite.Search.EmployeeSearchBasic();
 
-    var recordRef2 = new NetSuite.Records.RecordRef();
-    recordRef2.internalId = 224;
-    recordRef2.type = 'customer';
+    var searchField = new NetSuite.Search.Fields.SearchStringField();
+    searchField.field = 'firstName';
+    searchField.operator = 'startsWith';
+    searchField.searchValue = 'ry';
 
-    console.log('Getting list of 1 Employee record, 1 Customer record');
-    return service.getList([recordRef, recordRef2]);
+    search.searchField = searchField;
+
+    console.log('Searching for Employees with first name starting with "ry"');
+    return service.search(search);
   })
   .then(function(result, raw, soapHeader) {
-    if (result.readResponseList.status.$attributes.isSuccess !== 'true') {
+    if (result.searchResult.status.$attributes.isSuccess !== 'true') {
       console.error('Error');
-      console.error(result.readResponseList.status.statusDetail);
+      console.error(result.searchResult.status.statusDetail);
     }
-    console.log(result.readResponseList.readResponse[0]);
-    console.log(result.readResponseList.readResponse[1]);
+    console.log('Records found: ' + result.searchResult.totalRecords);
+    if (result.searchResult.totalRecords) {
+      console.log(result.searchResult.recordList.record[0]);
+    }
     console.log('Last Request:');
     console.log(service.config.client.lastRequest);
   })

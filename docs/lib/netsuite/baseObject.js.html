@@ -77,14 +77,24 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
               <li><a href="#BaseObject"><i class="alert alert-success"></i><span>BaseObject</span></a>
               </li>
               <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
+              </li>
+              <li><a href="#getUnserializablePropertyNames"><i class="alert alert-info"></i><span>getUnserializablePropertyNames</span></a>
+              </li>
+              <li><a href="#getSOAPType"><i class="alert alert-info"></i><span>getSOAPType</span></a>
+              </li>
+              <li><a href="#getXml"><i class="alert alert-info"></i><span>getXml</span></a>
               </li>
             </ul>
           </div>
@@ -106,9 +116,42 @@
               <div class="label label-info radius ctx-type">method</div><span>BaseObject.prototype.getAttributes()</span> -><span>Object</span>
             </p>
           </section>
-          <div class="description"><p>Serialize object&#39;s attributes</p> </div>
+          <div class="description"><p>Get object&#39;s attributes</p> </div>
           <pre><code class="language-javascript">BaseObject.prototype.getAttributes = function() {
   throw new Error('Must be implemented by subclass');
+};</code></pre>
+          <section id="getUnserializablePropertyNames">
+            <h1>getUnserializablePropertyNames</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>BaseObject.prototype.getUnserializablePropertyNames()</span> -><span>String[]</span>
+            </p>
+          </section>
+          <div class="description"><p>Get names of properties which should NOT be serialized as children</p> </div>
+          <pre><code class="language-javascript">BaseObject.prototype.getUnserializablePropertyNames = function() {
+  return [];
+};</code></pre>
+          <section id="getSOAPType">
+            <h1>getSOAPType</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>BaseObject.prototype.getSOAPType()</span> -><span>String</span>
+            </p>
+          </section>
+          <div class="description"><p>Get object&#39;s SOAP type (e.g. object&#39;s XML tag name)</p> </div>
+          <pre><code class="language-javascript">BaseObject.prototype.getSOAPType = function() {
+  return '';
+};</code></pre>
+          <section id="getXml">
+            <h1>getXml</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>BaseObject.prototype.getXml()</span> -><span>String</span>
+            </p>
+          </section>
+          <div class="description"><p>Get object&#39;s XML straight up. Used as last-resort workaround when<br />serialization fails due to bugs in <code>node-soap</code>.</p> </div>
+          <pre><code class="language-javascript">BaseObject.prototype.getXml = function() {
+  return '';
 };</code></pre>
         </div>
       </div>

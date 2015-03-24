@@ -12,16 +12,16 @@ describe('NetSuite.Records.RecordRef', function() {
   });
 
   it('should NOT populate internalId and externalId attribute if not specified', function() {
-    recordRef = new NetSuite.Records.RecordRef;
+    recordRef = new NetSuite.Records.RecordRef();
     var attrs = recordRef.getAttributes();
     should.not.exist(attrs.internalId);
     should.not.exist(attrs.externalId);
   });
 
   it('should populate internalId if specified', function() {
-    recordRef = new NetSuite.Records.RecordRef;
+    recordRef = new NetSuite.Records.RecordRef();
     recordRef.internalId = internalId;
     var attrs = recordRef.getAttributes();
-    attrs.internalId.should.equal.internalId;
+    attrs.internalId.should.equal(internalId);
   });
 });

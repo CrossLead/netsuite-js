@@ -77,8 +77,12 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li class="active"><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
@@ -148,26 +152,39 @@
     soapObj = {};
     object.forEach(function(el) {
       var serialized = Serializer.serialize(el);
-      var type = el.constructor.SOAPType;
+      var type = el.getSOAPType();
       soapObj[type] = soapObj[type] || [];
       soapObj[type].push(serialized[type]);
     });
-  } else {
+  } else if (typeof object === 'object') {
     // Get class static property
-    var type = object.constructor.SOAPType;
+    var type = object.getSOAPType();
 
     if (type) {
       soapObj = {};
       soapObj[type] = {};
       soapObj[type].$attributes = object.getAttributes();
 
-      // Recursively serialize properties
-      _.forOwn(object, function(value, key) {
-        var serialized = Serializer.serialize(value);
-        if (typeof serialized !== 'undefined') {
-          soapObj[type][key] = serialized;
-        }
-      });
+      var xmlOverride = object.getXml();
+      if (xmlOverride) {
+        soapObj[type].$xml = xmlOverride;
+      } else {
+        // Recursively serialize properties
+        var unserializablePropertyNames = object.getUnserializablePropertyNames();
+        _.forOwn(object, function(value, key) {
+          if (unserializablePropertyNames.indexOf(key) &lt; 0) {
+            var serialized = Serializer.serialize(value);
+            if (typeof serialized !== 'undefined') {
+              // Have to unwrap 1 layer
+              var childType = value.getSOAPType();
+              soapObj[type][childType] = serialized[childType];
+            } else {
+              // Not an attribute and no special serialization, just retain original value
+              soapObj[type][key] = value;
+            }
+          }
+        });
+      }
     }
   }
 
