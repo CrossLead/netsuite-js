@@ -54,4 +54,19 @@ describe('NetSuite.SOAP.Serializer', function() {
     soapObj.baseRef[1].should.have.property('$attributes');
     soapObj.baseRef[1].$attributes.type.should.equal(types[1]);
   });
+
+  it('should create an $xml prop if BaseObject.getXml() returns a value', function() {
+    // Will break if NetSuite.Search.SearchRecord no longer needs to output direct xml
+    var search = new NetSuite.Search.EmployeeSearchBasic();
+    var searchField = new NetSuite.Search.Fields.SearchStringField();
+    searchField.field = 'firstName';
+    searchField.operator = 'startsWith';
+    searchField.searchValue = 'ry';
+    search.searchField = searchField;
+
+    var soapObj = NetSuite.SOAP.Serializer.serialize(search);
+    soapObj.should.have.property('searchRecord');
+    soapObj.searchRecord.should.have.property('$xml');
+    soapObj.searchRecord.$xml.length.should.be.greaterThan(1);
+  });
 });
