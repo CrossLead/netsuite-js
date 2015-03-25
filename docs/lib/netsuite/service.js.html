@@ -77,10 +77,13 @@
             <li class="active"><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
@@ -97,6 +100,10 @@
               <li><a href="#getList"><i class="alert alert-info"></i><span>getList</span></a>
               </li>
               <li><a href="#search"><i class="alert alert-info"></i><span>search</span></a>
+              </li>
+              <li><a href="#setSearchPreferences"><i class="alert alert-info"></i><span>setSearchPreferences</span></a>
+              </li>
+              <li><a href="#clearSearchPreferences"><i class="alert alert-info"></i><span>clearSearchPreferences</span></a>
               </li>
             </ul>
           </div>
@@ -285,6 +292,45 @@
   var soapObj = Serializer.serialize(searchRecord);
   var search = denodeify(this.config.client.search);
   return search(soapObj);
+};</code></pre>
+          <section id="setSearchPreferences">
+            <h1>setSearchPreferences</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.setSearchPreferences()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>preferences</td>
+                <td>NetSuite.Search.SearchPreferences</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Adds or updates necessary SOAP headers to set search preferences.<br />Note these preferences persist across searches until updated or cleared.</p> </div>
+          <pre><code class="language-javascript">Service.prototype.setSearchPreferences = function(preferences) {
+  this.config.removeSoapHeader('searchPreferences');
+  this.config.addSoapHeader(preferences);
+};</code></pre>
+          <section id="clearSearchPreferences">
+            <h1>clearSearchPreferences</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.clearSearchPreferences()</span>
+            </p>
+          </section>
+          <div class="description"><p>Clears search preferences until <code>setSearchPreferences()</code> is called again.</p> </div>
+          <pre><code class="language-javascript">Service.prototype.clearSearchPreferences = function() {
+  this.config.removeSoapHeader('searchPreferences');
 };</code></pre>
         </div>
       </div>

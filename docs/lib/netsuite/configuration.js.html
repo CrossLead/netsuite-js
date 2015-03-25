@@ -77,10 +77,13 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
@@ -89,6 +92,10 @@
               <li><a href="#Configuration"><i class="alert alert-success"></i><span>Configuration</span></a>
               </li>
               <li><a href="#createAuthHeader"><i class="alert alert-info"></i><span>createAuthHeader</span></a>
+              </li>
+              <li><a href="#addSoapHeader"><i class="alert alert-info"></i><span>addSoapHeader</span></a>
+              </li>
+              <li><a href="#removeSoapHeader"><i class="alert alert-info"></i><span>removeSoapHeader</span></a>
               </li>
               <li><a href="#createConnection"><i class="alert alert-info"></i><span>createConnection</span></a>
               </li>
@@ -184,6 +191,7 @@
           </table>
           <div class="description"><p>Static helper for creating NeSuite auth header</p> </div>
           <pre><code class="language-javascript">Configuration.createAuthHeader = function(credentials) {
+  // TODO: refactor into own class
   var soapObj = {
     'platformMsgs:passport': {
       'platformCore:email': credentials.email,
@@ -201,6 +209,75 @@
   }
 
   return soapObj;
+};</code></pre>
+          <section id="addSoapHeader">
+            <h1>addSoapHeader</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Configuration.prototype.addSoapHeader()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>header</td>
+                <td>NetSuite.BaseObject</td>
+                <td>serializable header object</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Add SOAP header. This method does NOT replace existing SOAP headers with same name.</p> </div>
+          <pre><code class="language-javascript">Configuration.prototype.addSoapHeader = function(header) {
+  if (!this.client || !this.client.soapHeaders) {
+    throw new Error('Client not initialized');
+  }
+
+  var soapHeader = Serializer.serialize(header);
+  this.client.addSoapHeader(soapHeader);
+};</code></pre>
+          <section id="removeSoapHeader">
+            <h1>removeSoapHeader</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Configuration.prototype.removeSoapHeader()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>headerName</td>
+                <td>String</td>
+                <td>header to remove</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Remove all SOAP headers with given name</p> </div>
+          <pre><code class="language-javascript">Configuration.prototype.removeSoapHeader = function(headerName) {
+  if (!this.client || !this.client.soapHeaders) {
+    return;
+  }
+
+  // This uses `node-soap` Client internals. Client maintains array
+  // of flattened (string) headers, so do a basic &quot;startsWith&quot; check
+  for (var i = this.client.soapHeaders.length - 1; i &gt;= 0; i--) {
+    if (this.client.soapHeaders[i].indexOf('&lt;' + headerName) === 0) {
+      this.client.soapHeaders.splice(i, 1);
+    }
+  }
 };</code></pre>
           <section id="createConnection">
             <h1>createConnection</h1>

@@ -78,120 +78,52 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#Serializer"><i class="alert alert-success"></i><span>Serializer</span></a>
+              <li><a href="#TimeSheetSearchBasic"><i class="alert alert-success"></i><span>TimeSheetSearchBasic</span></a>
               </li>
-              <li><a href="#serialize"><i class="alert alert-info"></i><span>serialize</span></a>
+              <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="Serializer">
-            <h1>Serializer</h1>
+          <section id="TimeSheetSearchBasic">
+            <h1>TimeSheetSearchBasic</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>Serializer</span> -><span>Serializer</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>TimeSheetSearchBasic</span> -><span>TimeSheetSearchBasic</span>
             </p>
           </section>
-          <div class="description"><p>Static helper class for serializing NetSuite objects to format that the<br /><code>node-soap</code> client understands</p> </div>
-          <pre><code class="language-javascript">var Serializer = module.exports = function Serializer() {};</code></pre>
-          <section id="serialize">
-            <h1>serialize</h1>
+          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package</a></p> </div>
+          <pre><code class="language-javascript">var TimeSheetSearchBasic = module.exports = function TimeSheetSearchBasic() {
+  SearchRecord.call(this);
+};
+
+util.inherits(TimeSheetSearchBasic, SearchRecord);</code></pre>
+          <section id="getAttributes">
+            <h1>getAttributes</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>Serializer.serialize()</span> -><span>Object</span>
+              <div class="label label-info radius ctx-type">method</div><span>TimeSheetSearchBasic.prototype.getAttributes()</span>
             </p>
           </section>
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th style="width:20%">Option name</th>
-                <th style="width:20%">Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>object</td>
-                <td>NetSuite.BaseObject</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="description"><p>Serialize a NetSuite.Object to <code>node-soap</code> format</p> </div>
-          <pre><code class="language-javascript">Serializer.serialize = function(object) {
-  var soapObj;
-  if (object.constructor === Array) {
-    // For arrays, node-soap (weirdly) expects an object with each SOAP datatype
-    // mapped to an array instead of simply an array of serialized objects:
-    // ```js
-    // {
-    //   baseRef: [{
-    //     $attributes: {
-    //       type: 'employee',
-    //       internalId: 5084,
-    //       'xsi:type': 'platformCore:RecordRef'
-    //     }
-    //   }, {
-    //     $attributes: {
-    //       type: 'customer',
-    //       internalId: 224,
-    //       'xsi:type': 'platformCore:RecordRef'
-    //     }
-    //   }]
-    // }
-    // ```
-    soapObj = {};
-    object.forEach(function(el) {
-      var serialized = Serializer.serialize(el);
-      var type = el.getSOAPType();
-      soapObj[type] = soapObj[type] || [];
-      soapObj[type].push(serialized[type]);
-    });
-  } else if (typeof object === 'object') {
-    // Get class static property
-    var type = object.getSOAPType();
+          <div class="description"><p>@override</p> </div>
+          <pre><code class="language-javascript">TimeSheetSearchBasic.prototype.getAttributes = function() {
+  var attrs = {
+    'xsi:type': 'platformCommon:TimeSheetSearchBasic'
+  };
 
-    if (type) {
-      soapObj = {};
-      soapObj[type] = {};
-      soapObj[type].$attributes = object.getAttributes();
-
-      var xmlOverride = object.getXml();
-      if (xmlOverride) {
-        soapObj[type].$xml = xmlOverride;
-      } else {
-        // Recursively serialize properties
-        var unserializablePropertyNames = object.getUnserializablePropertyNames();
-        _.forOwn(object, function(value, key) {
-          if (unserializablePropertyNames.indexOf(key) &lt; 0) {
-            var serialized = Serializer.serialize(value);
-            if (typeof serialized !== 'undefined') {
-              // Have to unwrap 1 layer
-              var childType = value.getSOAPType();
-              soapObj[type][childType] = serialized[childType];
-            } else {
-              // Not an attribute and no special serialization, just retain original value
-              soapObj[type][key] = value;
-            }
-          }
-        });
-      }
-    }
-  }
-
-  return soapObj;
+  return attrs;
 };</code></pre>
         </div>
       </div>
