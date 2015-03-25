@@ -22,6 +22,10 @@ service
   .then(function( /*client*/ ) {
     console.log('WSDL processed');
 
+    var preferences = new NetSuite.Search.SearchPreferences();
+    preferences.pageSize = 45;
+    service.setSearchPreferences(preferences);
+
     var search = new NetSuite.Search.EmployeeSearchBasic();
 
     var searchField = new NetSuite.Search.Fields.SearchStringField();

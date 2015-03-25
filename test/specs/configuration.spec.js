@@ -3,6 +3,7 @@
 var _ = require('lodash'),
   nock = require('nock'),
   should = require('should'),
+  soap = require('soap'),
   NetSuite = require('../../'),
   MockNetSuiteService = require('../mockNetSuiteService');
 
@@ -68,6 +69,13 @@ describe('NetSuite.Configuration', function() {
       .createConnection()
       .then(function(client) {
         config._webservicesDomain.should.equal(mockWsdlUrl);
+
+        // TODO: This should really be another test, but need to figure out way
+        // to instantiate a `node-soap` Client with long-time processing of WSDL/XSDs
+        client.soapHeaders.length.should.equal(1);
+        config.removeSoapHeader('platformMsgs:passport');
+        client.soapHeaders.length.should.equal(0);
+
         done();
       })
       .catch(function(err) {
