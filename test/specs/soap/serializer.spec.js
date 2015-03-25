@@ -62,7 +62,7 @@ describe('NetSuite.SOAP.Serializer', function() {
     searchField.field = 'firstName';
     searchField.operator = 'startsWith';
     searchField.searchValue = 'ry';
-    search.searchField = searchField;
+    search.searchFields.push(searchField);
 
     var soapObj = NetSuite.SOAP.Serializer.serialize(search);
     soapObj.should.have.property('searchRecord');

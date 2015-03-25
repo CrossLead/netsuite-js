@@ -29,9 +29,16 @@ service
     searchField.operator = 'startsWith';
     searchField.searchValue = 'ry';
 
-    search.searchField = searchField;
+    search.searchFields.push(searchField);
 
-    console.log('Searching for Employees with first name starting with "ry"');
+    var searchField2 = new NetSuite.Search.Fields.SearchStringField();
+    searchField2.field = 'lastName';
+    searchField2.operator = 'startsWith';
+    searchField2.searchValue = 'fa';
+
+    search.searchFields.push(searchField2);
+
+    console.log('Searching for Employees with first name starting with "ry", last name starting with "fa"');
     return service.search(search);
   })
   .then(function(result, raw, soapHeader) {
