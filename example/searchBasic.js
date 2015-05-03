@@ -51,9 +51,7 @@ service
       console.error(result.searchResult.status.statusDetail);
     }
     console.log('Records found: ' + result.searchResult.totalRecords);
-    if (result.searchResult.totalRecords) {
-      console.log(result.searchResult.recordList.record[0]);
-    }
+    console.log(JSON.stringify(result.searchResult.recordList, null, 2));
     console.log('Last Request:');
     console.log(service.config.client.lastRequest);
   })
