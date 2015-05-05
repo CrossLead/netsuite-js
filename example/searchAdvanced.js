@@ -24,13 +24,17 @@ service
 
     var preferences = new NetSuite.Search.SearchPreferences();
     preferences.pageSize = 45;
-    preferences.bodFieldsOnly = false;
-    preferences.returnSearchColumns = false;
     service.setSearchPreferences(preferences);
 
     var search = new NetSuite.Search.CustomerSearchAdvanced();
+    search.columns = new NetSuite.Search.CustomerSearchRow();
+    search.columns.basic = new NetSuite.Search.CustomerSearchRowBasic();
 
-    console.log('Performing default CustomerSearchAdvanced');
+    var balanceField = new NetSuite.Search.Fields.SearchColumnDoubleField();
+    balanceField.field = 'balance';
+    search.columns.basic.searchColumnFields.push(balanceField);
+
+    console.log('Performing CustomerSearchAdvanced to retrieve "balance" field');
     return service.search(search);
   })
   .then(function(result, raw, soapHeader) {
@@ -39,7 +43,7 @@ service
       console.error(result.searchResult.status.statusDetail);
     }
     console.log('Records found: ' + result.searchResult.totalRecords);
-    console.log(JSON.stringify(result.searchResult.recordList, null, 2));
+    console.log(JSON.stringify(result.searchResult, null, 2));
     console.log('Last Request:');
     console.log(service.config.client.lastRequest);
   })
