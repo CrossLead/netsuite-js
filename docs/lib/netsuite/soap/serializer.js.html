@@ -77,14 +77,25 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\accountSearchBasic.js.html">netsuite\search\accountSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\budgetSearchBasic.js.html">netsuite\search\budgetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchAdvanced.js.html">netsuite\search\customerSearchAdvanced.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchBasic.js.html">netsuite\search\customerSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRow.js.html">netsuite\search\customerSearchRow.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRowBasic.js.html">netsuite\search\customerSearchRowBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRowBasic.js.html">netsuite\search\searchRowBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\taskSearchBasic.js.html">netsuite\search\taskSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeBillSearchBasic.js.html">netsuite\search\timeBillSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchcolumnDoubleField.js.html">netsuite\search\fields\searchcolumnDoubleField.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
           <div class="scrollspy">
@@ -132,7 +143,9 @@
           <div class="description"><p>Serialize a NetSuite.Object to <code>node-soap</code> format</p> </div>
           <pre><code class="language-javascript">Serializer.serialize = function(object) {
   var soapObj;
-  if (object.constructor === Array) {
+  if (!object) {
+    return undefined;
+  } else if (object.constructor === Array) {
     // For arrays, node-soap (weirdly) expects an object with each SOAP datatype
     // mapped to an array instead of simply an array of serialized objects:
     // ```js
@@ -175,7 +188,7 @@
         // Recursively serialize properties
         var unserializablePropertyNames = object.getUnserializablePropertyNames();
         _.forOwn(object, function(value, key) {
-          if (unserializablePropertyNames.indexOf(key) &lt; 0) {
+          if (unserializablePropertyNames.indexOf(key) &lt; 0 &amp;&amp; typeof value !== 'undefined') {
             var serialized = Serializer.serialize(value);
             if (typeof serialized !== 'undefined') {
               // Have to unwrap 1 layer

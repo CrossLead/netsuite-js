@@ -90,8 +90,8 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRowBasic.js.html">netsuite\search\searchRowBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\taskSearchBasic.js.html">netsuite\search\taskSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeBillSearchBasic.js.html">netsuite\search\timeBillSearchBasic.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
@@ -100,7 +100,7 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#TimeSheetSearchBasic"><i class="alert alert-success"></i><span>TimeSheetSearchBasic</span></a>
+              <li><a href="#TimeEntrySearchBasic"><i class="alert alert-success"></i><span>TimeEntrySearchBasic</span></a>
               </li>
               <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
               </li>
@@ -108,30 +108,30 @@
           </div>
         </div>
         <div class="span9">
-          <section id="TimeSheetSearchBasic">
-            <h1>TimeSheetSearchBasic</h1>
+          <section id="TimeEntrySearchBasic">
+            <h1>TimeEntrySearchBasic</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>TimeSheetSearchBasic</span> -><span>TimeSheetSearchBasic</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>TimeEntrySearchBasic</span> -><span>TimeEntrySearchBasic</span>
             </p>
           </section>
-          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package</a></p> </div>
-          <pre><code class="language-javascript">var TimeSheetSearchBasic = module.exports = function TimeSheetSearchBasic() {
+          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timeentrysearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timeentrysearchbasic.html?mode=package</a></p> </div>
+          <pre><code class="language-javascript">var TimeEntrySearchBasic = module.exports = function TimeEntrySearchBasic() {
   SearchRecord.call(this);
 };
 
-util.inherits(TimeSheetSearchBasic, SearchRecord);</code></pre>
+util.inherits(TimeEntrySearchBasic, SearchRecord);</code></pre>
           <section id="getAttributes">
             <h1>getAttributes</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>TimeSheetSearchBasic.prototype.getAttributes()</span>
+              <div class="label label-info radius ctx-type">method</div><span>TimeEntrySearchBasic.prototype.getAttributes()</span>
             </p>
           </section>
           <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">TimeSheetSearchBasic.prototype.getAttributes = function() {
+          <pre><code class="language-javascript">TimeEntrySearchBasic.prototype.getAttributes = function() {
   var attrs = {
-    'xsi:type': 'platformCommon:TimeSheetSearchBasic'
+    'xsi:type': 'platformCommon:TimeEntrySearchBasic'
   };
 
   return attrs;

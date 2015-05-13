@@ -87,11 +87,11 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRowBasic.js.html">netsuite\search\searchRowBasic.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\searchRowBasic.js.html">netsuite\search\searchRowBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\taskSearchBasic.js.html">netsuite\search\taskSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeBillSearchBasic.js.html">netsuite\search\timeBillSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
@@ -100,41 +100,81 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#TimeSheetSearchBasic"><i class="alert alert-success"></i><span>TimeSheetSearchBasic</span></a>
+              <li><a href="#SearchRowBasic"><i class="alert alert-success"></i><span>SearchRowBasic</span></a>
               </li>
-              <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
+              <li><a href="#searchColumnFields"><i class="alert alert-success"></i><span>searchColumnFields</span></a>
+              </li>
+              <li><a href="#getSOAPType"><i class="alert alert-info"></i><span>getSOAPType</span></a>
+              </li>
+              <li><a href="#getUnserializablePropertyNames"><i class="alert alert-info"></i><span>getUnserializablePropertyNames</span></a>
+              </li>
+              <li><a href="#getXml"><i class="alert alert-info"></i><span>getXml</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="TimeSheetSearchBasic">
-            <h1>TimeSheetSearchBasic</h1>
+          <section id="SearchRowBasic">
+            <h1>SearchRowBasic</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>TimeSheetSearchBasic</span> -><span>TimeSheetSearchBasic</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>SearchRowBasic</span> -><span>SearchRowBasic</span>
             </p>
           </section>
-          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package</a></p> </div>
-          <pre><code class="language-javascript">var TimeSheetSearchBasic = module.exports = function TimeSheetSearchBasic() {
-  SearchRecord.call(this);
-};
-
-util.inherits(TimeSheetSearchBasic, SearchRecord);</code></pre>
-          <section id="getAttributes">
-            <h1>getAttributes</h1>
+          <div class="description"><p>Abstract base class for basic search rows<br /><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/searchrowbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/searchrowbasic.html?mode=package</a></p> </div>
+          <pre><code class="language-javascript">var SearchRowBasic = module.exports = function SearchRowBasic() {
+  BaseObject.call(this);</code></pre>
+          <section id="searchColumnFields">
+            <h1>searchColumnFields</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>TimeSheetSearchBasic.prototype.getAttributes()</span>
+              <div class="label label-success radius ctx-type">property</div><span>this.searchColumnFields</span>
+            </p>
+          </section>
+          <div class="description"><p>@member {SearchColumnField[]} The search column fields to return this search. Required.</p> </div>
+          <pre><code class="language-javascript">this.searchColumnFields = [];
+};
+
+util.inherits(SearchRowBasic, BaseObject);</code></pre>
+          <section id="getSOAPType">
+            <h1>getSOAPType</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>SearchRowBasic.prototype.getSOAPType()</span>
             </p>
           </section>
           <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">TimeSheetSearchBasic.prototype.getAttributes = function() {
-  var attrs = {
-    'xsi:type': 'platformCommon:TimeSheetSearchBasic'
-  };
+          <pre><code class="language-javascript">SearchRowBasic.prototype.getSOAPType = function() {
+  // Always searchRow
+  return 'searchRowBasic';
+};</code></pre>
+          <section id="getUnserializablePropertyNames">
+            <h1>getUnserializablePropertyNames</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>SearchRowBasic.prototype.getUnserializablePropertyNames()</span>
+            </p>
+          </section>
+          <div class="description"><p>Do not auto serialize <code>searchColumnFields</code>. @see geXml</p> </div>
+          <pre><code class="language-javascript">SearchRowBasic.prototype.getUnserializablePropertyNames = function() {
+  return ['searchColumnFields'];
+};</code></pre>
+          <section id="getXml">
+            <h1>getXml</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>SearchRowBasic.prototype.getXml()</span>
+            </p>
+          </section>
+          <div class="description"><p><code>node-soap</code> doesn&#39;t set the child namespace correctly so must override all XML.</p> </div>
+          <pre><code class="language-javascript">SearchRowBasic.prototype.getXml = function() {
+  var xml = [];
+  this.searchColumnFields.forEach(function(searchField) {
+    // TODO: add back searchValue and customLabel
+    xml.push('&lt;platformCommon:' + searchField.field + '&gt;&lt;/platformCommon:' + searchField.field + '&gt;');
+  });
 
-  return attrs;
+  return xml.join('');
 };</code></pre>
         </div>
       </div>

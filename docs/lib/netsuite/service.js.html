@@ -77,14 +77,25 @@
             <li class="active"><a href="/netsuite-js/docs\lib\netsuite\service.js.html">netsuite\service.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\index.js.html">netsuite\records\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\records\recordRef.js.html">netsuite\records\recordRef.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\accountSearchBasic.js.html">netsuite\search\accountSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\budgetSearchBasic.js.html">netsuite\search\budgetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchAdvanced.js.html">netsuite\search\customerSearchAdvanced.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchBasic.js.html">netsuite\search\customerSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRow.js.html">netsuite\search\customerSearchRow.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRowBasic.js.html">netsuite\search\customerSearchRowBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchPreferences.js.html">netsuite\search\searchPreferences.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRecord.js.html">netsuite\search\searchRecord.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\searchRowBasic.js.html">netsuite\search\searchRowBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\taskSearchBasic.js.html">netsuite\search\taskSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeBillSearchBasic.js.html">netsuite\search\timeBillSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchcolumnDoubleField.js.html">netsuite\search\fields\searchcolumnDoubleField.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\searchStringField.js.html">netsuite\search\fields\searchStringField.js</a></li>
           </ul>
           <div class="scrollspy">
@@ -100,6 +111,8 @@
               <li><a href="#getList"><i class="alert alert-info"></i><span>getList</span></a>
               </li>
               <li><a href="#search"><i class="alert alert-info"></i><span>search</span></a>
+              </li>
+              <li><a href="#searchMoreWithId"><i class="alert alert-info"></i><span>searchMoreWithId</span></a>
               </li>
               <li><a href="#setSearchPreferences"><i class="alert alert-info"></i><span>setSearchPreferences</span></a>
               </li>
@@ -283,15 +296,51 @@
               </tr>
             </tbody>
           </table>
-          <div class="description"><p><code>result</code> description:</p><p><code>result.searchResult.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.searchResult.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.searchResult.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.searchResult.pageIndex</code> {Number}<br /><code>result.searchResult.pageSize</code> {Number}<br /><code>result.searchResult.recordList.record</code> {Record[]} The actual records. Their types are dependent on the search type<br /><code>result.searchResult.searchId</code> {String}<br /><code>result.searchResult.totalPages</code> {Number}<br /><code>result.searchResult.totalRecords</code> {Number}</p> </div>
+          <div class="description"><p><code>result</code> description:</p><p><code>result.searchResult.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.searchResult.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.searchResult.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.searchResult.pageIndex</code> {Number} one based<br /><code>result.searchResult.pageSize</code> {Number}<br /><code>result.searchResult.recordList.record</code> {Record[]} The actual records. Their types are dependent on the search type<br /><code>result.searchResult.searchId</code> {String}<br /><code>result.searchResult.totalPages</code> {Number}<br /><code>result.searchResult.totalRecords</code> {Number}</p> </div>
           <pre><code class="language-javascript">Service.prototype.search = function(searchRecord) {
   assertConnection(this);
-
-  // TODO: implement search preferences like pagination
 
   var soapObj = Serializer.serialize(searchRecord);
   var search = denodeify(this.config.client.search);
   return search(soapObj);
+};</code></pre>
+          <section id="searchMoreWithId">
+            <h1>searchMoreWithId</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>Service.prototype.searchMoreWithId()</span> -><span>Promise.&lt;result rawResponse soapHeader&gt;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>searchId</td>
+                <td>String</td>
+                <td>search id from original search</td>
+              </tr>
+              <tr>
+                <td>pageIndex</td>
+                <td>Number</td>
+                <td>target page index to retrieve</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p><code>result</code> description:</p><p><code>result.searchResult.status</code> {String} Operation status. Contains more details on errors.<br /><code>result.searchResult.status.$attributes.isSuccess</code> {String} Whether op was successful. String values of &#39;true&#39; or &#39;false&#39;<br /><code>[result.searchResult.status.statusDetail]</code> {StatusDetail[]} Status details on error.<br /><code>result.searchResult.pageIndex</code> {Number} one based<br /><code>result.searchResult.pageSize</code> {Number}<br /><code>result.searchResult.recordList.record</code> {Record[]} The actual records. Their types are dependent on the search type<br /><code>result.searchResult.searchId</code> {String}<br /><code>result.searchResult.totalPages</code> {Number}<br /><code>result.searchResult.totalRecords</code> {Number}</p> </div>
+          <pre><code class="language-javascript">Service.prototype.searchMoreWithId = function(searchId, pageIndex) {
+  assertConnection(this);
+
+  var searchMoreWithId = denodeify(this.config.client.searchMoreWithId);
+  return searchMoreWithId({
+    searchId: searchId,
+    pageIndex: pageIndex
+  });
 };</code></pre>
           <section id="setSearchPreferences">
             <h1>setSearchPreferences</h1>

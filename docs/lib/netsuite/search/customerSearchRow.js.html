@@ -81,7 +81,7 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\search\budgetSearchBasic.js.html">netsuite\search\budgetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchAdvanced.js.html">netsuite\search\customerSearchAdvanced.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchBasic.js.html">netsuite\search\customerSearchBasic.js</a></li>
-            <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRow.js.html">netsuite\search\customerSearchRow.js</a></li>
+            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRow.js.html">netsuite\search\customerSearchRow.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\customerSearchRowBasic.js.html">netsuite\search\customerSearchRowBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\employeeSearchBasic.js.html">netsuite\search\employeeSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\index.js.html">netsuite\search\index.js</a></li>
@@ -91,7 +91,7 @@
             <li><a href="/netsuite-js/docs\lib\netsuite\search\taskSearchBasic.js.html">netsuite\search\taskSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeBillSearchBasic.js.html">netsuite\search\timeBillSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\timeEntrySearchBasic.js.html">netsuite\search\timeEntrySearchBasic.js</a></li>
-            <li class="active"><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
+            <li><a href="/netsuite-js/docs\lib\netsuite\search\timeSheetSearchBasic.js.html">netsuite\search\timeSheetSearchBasic.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\index.js.html">netsuite\soap\index.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\soap\serializer.js.html">netsuite\soap\serializer.js</a></li>
             <li><a href="/netsuite-js/docs\lib\netsuite\search\fields\index.js.html">netsuite\search\fields\index.js</a></li>
@@ -100,41 +100,75 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#TimeSheetSearchBasic"><i class="alert alert-success"></i><span>TimeSheetSearchBasic</span></a>
+              <li><a href="#CustomerSearchRow"><i class="alert alert-success"></i><span>CustomerSearchRow</span></a>
+              </li>
+              <li><a href="#basic"><i class="alert alert-success"></i><span>basic</span></a>
               </li>
               <li><a href="#getAttributes"><i class="alert alert-info"></i><span>getAttributes</span></a>
+              </li>
+              <li><a href="#getXml"><i class="alert alert-info"></i><span>getXml</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="TimeSheetSearchBasic">
-            <h1>TimeSheetSearchBasic</h1>
+          <section id="CustomerSearchRow">
+            <h1>CustomerSearchRow</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>TimeSheetSearchBasic</span> -><span>TimeSheetSearchBasic</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>CustomerSearchRow</span> -><span>CustomerSearchRow</span>
             </p>
           </section>
-          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/timesheetsearchbasic.html?mode=package</a></p> </div>
-          <pre><code class="language-javascript">var TimeSheetSearchBasic = module.exports = function TimeSheetSearchBasic() {
-  SearchRecord.call(this);
+          <div class="description"><p><a href="https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/customersearchrow.html?mode=package">https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2014_2/schema/search/customersearchrow.html?mode=package</a></p> </div>
+          <pre><code class="language-javascript">var CustomerSearchRow = module.exports = function CustomerSearchRow() {
+  BaseObject.call(this);</code></pre>
+          <section id="basic">
+            <h1>basic</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-success radius ctx-type">property</div><span>this.basic</span>
+            </p>
+          </section>
+          <div class="description"><p>@member {CustomerSearchRowBasic}</p> </div>
+          <pre><code class="language-javascript">this.basic = undefined;
+
+  // TODO: other fields
 };
 
-util.inherits(TimeSheetSearchBasic, SearchRecord);</code></pre>
+util.inherits(CustomerSearchRow, BaseObject);</code></pre>
           <section id="getAttributes">
             <h1>getAttributes</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>TimeSheetSearchBasic.prototype.getAttributes()</span>
+              <div class="label label-info radius ctx-type">method</div><span>CustomerSearchRow.prototype.getAttributes()</span>
             </p>
           </section>
           <div class="description"><p>@override</p> </div>
-          <pre><code class="language-javascript">TimeSheetSearchBasic.prototype.getAttributes = function() {
+          <pre><code class="language-javascript">CustomerSearchRow.prototype.getAttributes = function() {
   var attrs = {
-    'xsi:type': 'platformCommon:TimeSheetSearchBasic'
+    'xsi:type': 'listRel:CustomerSearchRow'
   };
 
   return attrs;
+};</code></pre>
+          <section id="getXml">
+            <h1>getXml</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>CustomerSearchRow.prototype.getXml()</span>
+            </p>
+          </section>
+          <div class="description"><p>@override</p> </div>
+          <pre><code class="language-javascript">CustomerSearchRow.prototype.getXml = function() {
+  var xml = [];
+
+  if (this.basic) {
+    xml.push('&lt;listRel:basic&gt;');
+    xml.push(this.basic.getXml());
+    xml.push('&lt;/listRel:basic&gt;');
+  }
+
+  return xml.join('');
 };</code></pre>
         </div>
       </div>
