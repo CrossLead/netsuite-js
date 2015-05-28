@@ -30,6 +30,14 @@ service
     search.columns = new NetSuite.Search.CustomerSearchRow();
     search.columns.basic = new NetSuite.Search.CustomerSearchRowBasic();
 
+    var entityIdField = new NetSuite.Search.Fields.SearchColumnStringField();
+    entityIdField.field = 'entityId';
+    search.columns.basic.searchColumnFields.push(entityIdField);
+
+    var internalIdField = new NetSuite.Search.Fields.SearchColumnSelectField();
+    internalIdField.field = 'internalId';
+    search.columns.basic.searchColumnFields.push(internalIdField);
+
     var balanceField = new NetSuite.Search.Fields.SearchColumnDoubleField();
     balanceField.field = 'balance';
     search.columns.basic.searchColumnFields.push(balanceField);
