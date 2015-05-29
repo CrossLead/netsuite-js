@@ -42,6 +42,10 @@ service
     balanceField.field = 'balance';
     search.columns.basic.searchColumnFields.push(balanceField);
 
+    var daysOverdueField = new NetSuite.Search.Fields.SearchColumnLongField();
+    daysOverdueField.field = 'daysOverdue';
+    search.columns.basic.searchColumnFields.push(daysOverdueField);
+
     console.log('Performing CustomerSearchAdvanced to retrieve "balance" field');
     return service.search(search);
   })
