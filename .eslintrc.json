@@ -1,0 +1,23 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"extends": "eslint:recommended",
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"rules": {
+		"semi": ["error", "always"],
+		"indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"no-console": "off",
+		"no-redeclare": "warn",
+		"no-unused-vars": "warn",
+		"no-undef": "warn",
+		"no-mixed-spaces-and-tabs": "off",
+		"no-unreachable": "warn"
+	}
+}
