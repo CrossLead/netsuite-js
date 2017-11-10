@@ -11,8 +11,25 @@
 var denodeify = require('denodeify');
 var NetSuite = require('../');
 
-var credentials = require('./credentials.json');
-var config = new NetSuite.Configuration(credentials);
+//var credentials = require('./credentials.json');
+
+var credentials = {
+    "email": "harmony.Netsuite@gmail.com",
+    "password": "J1tterb1t",
+    "account": "TSTDRV629200",
+    "role": "1002"
+};
+var loginHeader = {
+    "ApplicationInfo" : {
+	"applicationId" : "79927DCC-D1D8-4884-A7C5-F2B155FA00F3"
+    }
+};
+var options = {
+    "apiVersion": '2016_1'
+};
+
+
+var config = new NetSuite.Configuration(credentials, options);
 var service = new NetSuite.Service(config);
 
 console.log('Creating NetSuite connection');
@@ -22,16 +39,16 @@ service
   .then(function( /*client*/ ) {
     console.log('WSDL processed');
 
-    var preferences = new NetSuite.Search.SearchPreferences();
-    preferences.pageSize = 10;
-    service.setSearchPreferences(preferences);
+    //var preferences = new NetSuite.Search.SearchPreferences();
+    //preferences.pageSize = 10;
+    //service.setSearchPreferences(preferences);
 
-    var search = new NetSuite.Search.EmployeeSearchBasic();
+    var search = new NetSuite.Search.CustomerSearchBasic();
 
     var searchField = new NetSuite.Search.Fields.SearchStringField();
-    searchField.field = 'firstName';
+    searchField.field = 'email';
     searchField.operator = 'contains';
-    searchField.searchValue = 'e';
+    searchField.searchValue = 'ufp';
 
     search.searchFields.push(searchField);
 
@@ -43,7 +60,8 @@ service
 
     // search.searchFields.push(searchField2);
 
-    console.log('Searching for Employees with first name containing "e"');
+    console.log('Searching for Customers with first name containing "e"');
+    service.config.client.addSoapHeader(loginHeader);
     return service.search(search);
   })
   .then(function(result, raw, soapHeader) {

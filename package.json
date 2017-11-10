@@ -1,47 +1,28 @@
 {
-  "_args": [
-    [
-      "netsuite-navomi-js@0.0.4",
-      "/Users/mananmehta/LivePerson/CRM-Widget"
-    ]
-  ],
-  "_from": "netsuite-navomi-js@0.0.4",
-  "_id": "netsuite-navomi-js@0.0.4",
-  "_inBundle": false,
-  "_integrity": "sha1-iQf2KoWdbSe2t1CtQow0dOK0BUc=",
-  "_location": "/netsuite-navomi-js",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "netsuite-navomi-js@0.0.4",
-    "name": "netsuite-navomi-js",
-    "escapedName": "netsuite-navomi-js",
-    "rawSpec": "0.0.4",
-    "saveSpec": null,
-    "fetchSpec": "0.0.4"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/netsuite-navomi-js/-/netsuite-navomi-js-0.0.4.tgz",
-  "_spec": "0.0.4",
-  "_where": "/Users/mananmehta/LivePerson/CRM-Widget",
+  "name": "netsuite-js",
+  "description": "A Node wrapper for the NetSuite SOAP API.",
+  "version": "0.0.4",
+  "homepage": "https://bitbucket.org/navomi/netsuite-js/admin",
+  "bugs": "https://bitbucket.org/navomi/netsuite-js/admin",
+  "license": "Private",
+  "main": "lib/index.js",
   "author": {
-    "name": "Christian Yang",
-    "email": "christian.yang@crosslead.com",
-    "url": "http://crosslead.com/"
+    "name": "Anuj Sehgal",
+    "email": "anuj.sehgal@navomi.com",
+    "url": "http://www.navomi.com/"
   },
-  "bugs": {
-    "url": "https://github.com/CrossLead/netsuite-navomi-js/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/navomi/netsuite-js/admin"
   },
+  "keywords": [],
   "dependencies": {
     "debug": "2.1.1",
-    "denodeify": "1.2.1",
+    "denodeify": "^1.2.1",
+    "es6-promise": "^2.0.1",
     "lodash": "3.3.1",
-    "soap": "0.8.0"
+    "soap": "^0.8.0"
   },
-  "description": "A Node wrapper for the NetSuite SOAP API.",
   "devDependencies": {
     "async": "^0.9.0",
     "coveralls": "^2.11.2",
@@ -61,22 +42,8 @@
     "node-inspector": "^0.9.1",
     "should": "^5.0.1"
   },
-  "engines": {
-    "node": ">=4.3.0",
-    "npm": ">=3"
-  },
-  "homepage": "https://github.com/CrossLead/netsuite-navomi-js",
-  "keywords": [],
-  "license": "Apache",
-  "main": "lib/index.js",
-  "name": "netsuite-navomi-js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CrossLead/netsuite-navomi-js.git"
-  },
   "scripts": {
     "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test": "gulp test"
-  },
-  "version": "0.0.4"
+  }
 }
