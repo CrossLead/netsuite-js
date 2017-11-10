@@ -1,5 +1,5 @@
 {
-  "name": "netsuite-js",
+  "name": "netsuite-navomi-js",
   "description": "A Node wrapper for the NetSuite SOAP API.",
   "version": "0.0.4",
   "homepage": "https://bitbucket.org/navomi/netsuite-js/admin",
