@@ -1,5 +1,5 @@
 # netsuite-js 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Coverage Status][coveralls-image]][coveralls-url]
+[![CircleCI](https://circleci.com/gh/Navomi-Jaden/netsuite-js/tree/master.svg?style=svg)](https://circleci.com/gh/Navomi-Jaden/netsuite-js/tree/master)
 
 A Node wrapper for the NetSuite SOAP API.
 
@@ -7,7 +7,7 @@ A Node wrapper for the NetSuite SOAP API.
 ## Install
 
 ```bash
-$ git clone git@bitbucket.org:navomi/netsuite-js.git
+$ git clone git@github.com/Jaden-Giordano/netsuite-js.git
 ```
 
 
