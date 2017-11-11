@@ -8,7 +8,7 @@ A Node wrapper for the NetSuite SOAP API.
 ## Install
 
 ```bash
-$ git clone git@github.com/Jaden-Giordano/netsuite-js.git
+$ git clone git@github.com/Navomi-Jaden/netsuite-js.git
 ```
 
 

@@ -10,11 +10,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Jaden-Giordano/netsuite-js"
+		"url": "https://github.com/Navomi-Jaden/netsuite-js"
 	},
 	"license": "Apache-2.0",
-	"homepage": "https://bitbucket.org/navomi/netsuite-js/admin",
-	"bugs": "https://github.com/Jaden-Giordano/netsuite-js/issues",
+	"homepage": "https://github.com/Navomi-Jaden/netsuite-js",
+	"bugs": "https://github.com/Navomi-Jaden/netsuite-js/issues",
 	"scripts": {
 		"lint": "eslint --config .eslintrc.json lib/. test/. --fix",
 		"lint-nofix": "eslint --config .eslintrc.json lib/. test/.",
