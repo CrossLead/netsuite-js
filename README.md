@@ -1,5 +1,5 @@
 # netsuite-js
-[![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg?style=for-the-badge)](https://circleci.com/gh/Navomi-Jaden/netsuite-js.svg?style=svg)
+[![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg?style=for-the-badge)](https://circleci.com/gh/Navomi-Jaden/netsuite-js)
 [![Known Vulnerabilities](https://snyk.io/test/github/navomi-jaden/netsuite-js/badge.svg)](https://snyk.io/test/github/navomi-jaden/netsuite-js)
 [![codecov](https://codecov.io/gh/Navomi-Jaden/netsuite-js/branch/master/graph/badge.svg)](https://codecov.io/gh/Navomi-Jaden/netsuite-js)
 
