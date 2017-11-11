@@ -1,52 +1,39 @@
 {
-  "name": "netsuite-js",
-  "description": "A Node wrapper for the NetSuite SOAP API.",
-  "version": "0.0.4",
-  "homepage": "https://github.com/CrossLead/netsuite-js",
-  "bugs": "https://github.com/CrossLead/netsuite-js/issues",
-  "license": "Apache",
-  "main": "lib/index.js",
-  "author": {
-    "name": "Christian Yang",
-    "email": "christian.yang@crosslead.com",
-    "url": "http://crosslead.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CrossLead/netsuite-js"
-  },
-  "keywords": [],
-  "dependencies": {
-    "debug": "2.1.1",
-    "denodeify": "1.2.1",
-    "lodash": "3.3.1",
-    "soap": "0.8.0"
-  },
-  "devDependencies": {
-    "async": "^0.9.0",
-    "coveralls": "^2.11.2",
-    "gulp": "^3.8.11",
-    "gulp-bump": "^0.2.1",
-    "gulp-doxx": "0.0.4",
-    "gulp-istanbul": "^0.6.0",
-    "gulp-jscs": "^1.4.0",
-    "gulp-jshint": "^1.9.2",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-plumber": "^0.6.6",
-    "gulp-util": "^3.0.4",
-    "jshint-stylish": "^1.0.1",
-    "mocha": "^2.1.0",
-    "nock": "^0.59.1",
-    "node-inspector": "^0.9.1",
-    "should": "^5.0.1"
-  },
-  "scripts": {
-    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "gulp test"
-  },
-  "engines": {
-    "node": ">=4.3.0",
-    "npm": ">=3"
-  }
+	"name": "netsuite-js",
+	"description": "A Node wrapper for the NetSuite SOAP API.",
+	"version": "0.0.5",
+	"main": "lib/index.js",
+	"author": {
+		"name": "Christian Yang",
+		"email": "christian.yang@crosslead.com",
+		"url": "http://crosslead.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Navomi-Jaden/netsuite-js"
+	},
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/Navomi-Jaden/netsuite-js",
+	"bugs": "https://github.com/Navomi-Jaden/netsuite-js/issues",
+	"scripts": {
+		"lint": "eslint --config .eslintrc.json lib/. test/. --fix",
+		"lint-nofix": "eslint --config .eslintrc.json lib/. test/.",
+		"mocha": "NODE_ENV=test mocha test/ --recursive",
+		"istanbul": "NODE_ENV=test istanbul cover --report lcovonly _mocha -- test/ -R spec --recursive && codecov",
+		"test": "yarn lint && yarn istanbul"
+	},
+	"dependencies": {
+		"denodeify": "^1.2.1",
+		"lodash": "^4.17.4",
+		"soap": "^0.23.0"
+	},
+	"devDependencies": {
+		"async": "^2.6.0",
+		"codecov": "^3.0.0",
+		"eslint": "^4.10.0",
+		"istanbul": "^0.4.5",
+		"mocha": "^4.0.1",
+		"nock": "^9.1.0",
+		"should": "^13.1.3"
+	}
 }

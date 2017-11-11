@@ -11,8 +11,17 @@
 var denodeify = require('denodeify');
 var NetSuite = require('../');
 
-var credentials = require('./credentials.json');
-var config = new NetSuite.Configuration(credentials);
+var credentials = {
+    "email": "harmony.Netsuite@gmail.com",
+    "password": "J1tterb1t",
+    "account": "TSTDRV629200",
+    "role": "1002"
+};
+var options = {
+    "apiVersion": '2015_2'
+};
+
+var config = new NetSuite.Configuration(credentials, options);
 var service = new NetSuite.Service(config);
 
 console.log('Creating NetSuite connection');
@@ -28,6 +37,7 @@ service
     recordRef.type = 'employee';
 
     console.log('Getting Employee record');
+    console.log(JSON.stringify(recordRef, null, 2));
     return service.get(recordRef);
   })
   .then(function(result, raw, soapHeader) {
