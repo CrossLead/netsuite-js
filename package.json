@@ -27,8 +27,8 @@
 	"scripts": {
 		"lint": "eslint --config .eslintrc.json lib/. test/. --fix",
 		"lint-nofix": "eslint --config .eslintrc.json lib/. test/.",
-		"mocha": "mocha test/ --recursive --require blanket --reporter mocha-lcov-reporter",
-		"coverage": "codecov -t 4988d6fc-f3a6-459c-95c1-e7c10125b98a",
+		"mocha": "NODE_ENV=test mocha test/ --recursive --require blanket --reporter mocha-lcov-reporter",
+		"coverage": "YOURPACKAGE_COVERAGE=1 codecov -t 4988d6fc-f3a6-459c-95c1-e7c10125b98a",
 		"test": "yarn lint && yarn mocha && yarn coverage"
 	},
 	"dependencies": {
