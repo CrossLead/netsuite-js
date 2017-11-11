@@ -19,7 +19,7 @@
 		"lint": "eslint --config .eslintrc.json lib/. test/. --fix",
 		"lint-nofix": "eslint --config .eslintrc.json lib/. test/.",
 		"mocha": "NODE_ENV=test mocha test/ --recursive",
-		"istanbul": "istanbul cover mocha --report lcovonly -- -R spec && codecov -f \"codecov\"",
+		"istanbul": "istanbul cover mocha --report lcovonly -- -R spec && ls -al && codecov -f \"codecov\"",
 		"test": "yarn lint && yarn mocha && yarn istanbul"
 	},
 	"dependencies": {
