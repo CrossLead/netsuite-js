@@ -1,6 +1,6 @@
 # netsuite-js
 [![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg?style=for-the-badge)](https://circleci.com/gh/Navomi-Jaden/netsuite-js)
-[![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg?style=for-the-badge)](https://codecov.io/gh/Navomi-Jaden/netsuite-js)
+[![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg?style=for-the-badge)](https://codecov.io/gh/Navomi-Jaden/netsuite-js)
 
 A Node wrapper for the NetSuite SOAP API.
 
